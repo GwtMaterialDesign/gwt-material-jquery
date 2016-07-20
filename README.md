@@ -9,7 +9,7 @@ Documentation on the JQuery can be found here: https://api.jquery.com/
 Ensure you have JQuery loaded before this library is inherited.
 This is handled by GMD if you yare using `GwtMaterialWithJQueryDebug` GMD module.
 
-```java
+```xml
 <inherits name="gwt.material.design.jquery.JQuery" />
 ```
 
