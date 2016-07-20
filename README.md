@@ -3,7 +3,20 @@
 
 JQuery interface maintained by GWT Material Design.
 
+## Documentation
+
 Documentation on the JQuery can be found here: https://api.jquery.com/
+
+## Maven
+Current Version 1.0-SNAPSHOT
+```xml
+<dependency>
+    <groupId>com.github.gwtmaterialdesign</groupId>
+    <artifactId>gwt-material-jquery</artifactId>
+    <version>1.0-SNAPSHOT</version>
+</dependency>
+```
+Will be out of the snapshot version soon.
 
 ## Usage
 Ensure you have JQuery loaded before this library is inherited.
