@@ -62,7 +62,19 @@ import jsinterop.annotations.JsType;
  * @author Ben Dol
  */
 @JsType(name = "jQuery", isNative = true)
-public class JQueryElement<T> extends Node {
+public class JQueryElement extends Node {
+
+    /**
+     * A helper method to enable cross-casting from any {@link JQueryElement}
+     * type to any other {@link JQueryElement} type.
+     *
+     * @param <T> the target type
+     * @return this object as a different type
+     */
+    @JsOverlay
+    public final <T extends JQueryElement> T cast() {
+        return (T) this;
+    }
 
     /**
      * A string containing the jQuery version number.
@@ -90,21 +102,21 @@ public class JQueryElement<T> extends Node {
      *                       additional elements to add to the set of matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> add(String selectorOrHtml);
+    public native JQueryElement add(String selectorOrHtml);
 
     /**
      * Create a new jQuery object with elements added to the set of matched elements.
      * @param element One or more elements to add to the set of matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> add(Element element);
+    public native JQueryElement add(Element element);
 
     /**
      * Create a new jQuery object with elements added to the set of matched elements.
      * @param selection An existing jQuery object to add to the set of matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> add(JQueryElement selection);
+    public native JQueryElement add(JQueryElement selection);
 
     /**
      * Create a new jQuery object with elements added to the set of matched elements.
@@ -114,7 +126,7 @@ public class JQueryElement<T> extends Node {
      *                similar to the context argument of the $(selector, context) method.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> add(String selector, Element context);
+    public native JQueryElement add(String selector, Element context);
 
     /**
      * Add the previous set of elements on the stack to the current set, optionally
@@ -123,7 +135,7 @@ public class JQueryElement<T> extends Node {
      *                 set of elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> addBack(String... selector);
+    public native JQueryElement addBack(String... selector);
 
     /**
      * Adds the specified class(es) to each element in the set of matched elements.
@@ -131,7 +143,7 @@ public class JQueryElement<T> extends Node {
      *                  attribute of each matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> addClass(String className);
+    public native JQueryElement addClass(String className);
 
     /**
      * Adds the specified class(es) to each element in the set of matched elements.
@@ -142,7 +154,7 @@ public class JQueryElement<T> extends Node {
      *                 element in the set.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> addClass(Func2<Integer, String> function);
+    public native JQueryElement addClass(Func2<Integer, String> function);
 
     /**
      * Insert content, specified by the parameter, after each element in the
@@ -150,7 +162,7 @@ public class JQueryElement<T> extends Node {
      * @param content HTML string to insert after each element in the set of matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> after(String content);
+    public native JQueryElement after(String content);
 
     /**
      * Insert content, specified by the parameter, after each element in the
@@ -158,7 +170,7 @@ public class JQueryElement<T> extends Node {
      * @param content DOM elements to insert after each element in the set of matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> after(Element... content);
+    public native JQueryElement after(Element... content);
 
     /**
      * Insert content, specified by the parameter, after each element in the
@@ -166,7 +178,7 @@ public class JQueryElement<T> extends Node {
      * @param content jQuery object to insert after each element in the set of matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> after(JQueryElement content);
+    public native JQueryElement after(JQueryElement content);
 
     /**
      * Insert content, specified by the parameter, after each element in the
@@ -177,7 +189,7 @@ public class JQueryElement<T> extends Node {
      *                 Within the function, this refers to the current element in the set.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> after(Func1<Integer> function);
+    public native JQueryElement after(Func1<Integer> function);
 
     /**
      * Insert content, specified by the parameter, after each element in the
@@ -189,7 +201,7 @@ public class JQueryElement<T> extends Node {
      *                 refers to the current element in the set.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> after(Func2<Integer, String> function);
+    public native JQueryElement after(Func2<Integer, String> function);
 
     /**
      * TODO: Reserved for AJAX:
@@ -207,7 +219,7 @@ public class JQueryElement<T> extends Node {
      * should be used with jQuery 1.8 and later.
      * @deprecated use {@link #addBack(String...)}
      */
-    public native JQueryElement<T> andSelf();
+    public native JQueryElement andSelf();
 
     /**
      * Perform a custom animation of a set of CSS properties.
@@ -215,7 +227,7 @@ public class JQueryElement<T> extends Node {
      * @param duration A string or number determining how long the animation will run.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> animate(Object properties, double duration);
+    public native JQueryElement animate(Object properties, double duration);
 
     /**
      * Perform a custom animation of a set of CSS properties.
@@ -224,7 +236,7 @@ public class JQueryElement<T> extends Node {
      * @param easing A string indicating which easing function to use for the transition.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> animate(Object properties, double duration, String easing);
+    public native JQueryElement animate(Object properties, double duration, String easing);
 
     /**
      * Perform a custom animation of a set of CSS properties.
@@ -234,7 +246,7 @@ public class JQueryElement<T> extends Node {
      * @param function A function to call once the animation is complete, called once per matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> animate(Object properties, double duration, String easing, Func function);
+    public native JQueryElement animate(Object properties, double duration, String easing, Func function);
 
     /**
      * Perform a custom animation of a set of CSS properties.
@@ -242,28 +254,28 @@ public class JQueryElement<T> extends Node {
      * @param options A map of additional options to pass to the method.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> animate(Object properties, AnimateOptions options);
+    public native JQueryElement animate(Object properties, AnimateOptions options);
 
     /**
      * Insert content, specified by the parameter, to the end of each element in the set of matched elements.
      * @param htmlString HTML string to insert at the end of each element in the set of matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> append(String htmlString);
+    public native JQueryElement append(String htmlString);
 
     /**
      * Insert content, specified by the parameter, to the end of each element in the set of matched elements.
      * @param element jQuery objects to insert at the end of each element in the set of matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> append(JQueryElement element);
+    public native JQueryElement append(JQueryElement element);
 
     /**
      * Insert content, specified by the parameter, to the end of each element in the set of matched elements.
      * @param element DOM elements to insert at the end of each element in the set of matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> append(Element... element);
+    public native JQueryElement append(Element... element);
 
     /**
      * Insert every element in the set of matched elements to the end of the target.
@@ -271,7 +283,7 @@ public class JQueryElement<T> extends Node {
      *                element(s) specified by this parameter.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> appendTo(String htmlString);
+    public native JQueryElement appendTo(String htmlString);
 
     /**
      * Insert every element in the set of matched elements to the end of the target.
@@ -279,7 +291,7 @@ public class JQueryElement<T> extends Node {
      *                element(s) specified by this parameter.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> appendTo(JQueryElement element);
+    public native JQueryElement appendTo(JQueryElement element);
 
     /**
      * Insert every element in the set of matched elements to the end of the target.
@@ -287,49 +299,49 @@ public class JQueryElement<T> extends Node {
      *                element(s) specified by this parameter.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> appendTo(Element... element);
+    public native JQueryElement appendTo(Element... element);
 
     /**
      * Insert content, specified by the parameter, to the beginning of each element in the set of matched elements.
      * @param htmlString HTML string to insert at the end of each element in the set of matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> prepend(String htmlString);
+    public native JQueryElement prepend(String htmlString);
 
     /**
      * Insert content, specified by the parameter, to the beginning of each element in the set of matched elements.
      * @param element jQuery objects to insert at the end of each element in the set of matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> prepend(JQueryElement element);
+    public native JQueryElement prepend(JQueryElement element);
 
     /**
      * Insert content, specified by the parameter, to the beginning of each element in the set of matched elements.
      * @param element DOM elements to insert at the end of each element in the set of matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> prepend(Element... element);
+    public native JQueryElement prepend(Element... element);
 
     /**
      * Insert every element in the set of matched elements to the beginning of the target.
      * @param htmlString HTML string to insert at the end of each element in the set of matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> prependTo(String htmlString);
+    public native JQueryElement prependTo(String htmlString);
 
     /**
      * Insert every element in the set of matched elements to the beginning of the target.
      * @param element jQuery objects to insert at the end of each element in the set of matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> prependTo(JQueryElement element);
+    public native JQueryElement prependTo(JQueryElement element);
 
     /**
      * Insert every element in the set of matched elements to the beginning of the target.
      * @param element DOM elements to insert at the end of each element in the set of matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> prependTo(Element... element);
+    public native JQueryElement prependTo(Element... element);
 
     /**
      * Get the value of an attribute for the first element in the set of matched elements.
@@ -343,7 +355,7 @@ public class JQueryElement<T> extends Node {
      * @param value A value to set for the attribute.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> attr(String attr, Object value);
+    public native JQueryElement attr(String attr, Object value);
 
     /**
      * Set one or more attributes for the set of matched elements.
@@ -353,28 +365,28 @@ public class JQueryElement<T> extends Node {
      *                 attribute value as arguments.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> attr(String attr, Func2<Integer, Object> function);
+    public native JQueryElement attr(String attr, Func2<Integer, Object> function);
 
     /**
      * Insert content, specified by the parameter, before each element in the set of matched elements.
      * @param htmlString HTML string to insert before each element in the set of matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> before(String htmlString);
+    public native JQueryElement before(String htmlString);
 
     /**
      * Insert content, specified by the parameter, before each element in the set of matched elements.
      * @param element jQuery object to insert before each element in the set of matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> before(JQueryElement element);
+    public native JQueryElement before(JQueryElement element);
 
     /**
      * Insert content, specified by the parameter, before each element in the set of matched elements.
      * @param element DOM elements to insert before each element in the set of matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> before(Element... element);
+    public native JQueryElement before(Element... element);
 
     /**
      * Attach a handler to an event for the elements.
@@ -383,7 +395,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> bind(String eventType, EventFunc handler);
+    public native JQueryElement bind(String eventType, EventFunc handler);
 
     /**
      * Attach a handler to an event for the elements.
@@ -392,7 +404,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> bind(String eventType, EventFunc1 handler);
+    public native JQueryElement bind(String eventType, EventFunc1 handler);
 
     /**
      * Attach a handler to an event for the elements.
@@ -401,17 +413,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> bind(String eventType, EventFunc2 handler);
-
-    /**
-     * Attach a handler to an event for the elements.
-     * @param eventType A string containing one or more DOM event types, such as "click" or
-     *                  "submit," or custom event names.
-     * @param eventData An object containing data that will be passed to the event handler.
-     * @param handler A function to execute each time the event is triggered.
-     * @return self {@link JQueryElement}
-     */
-    public native JQueryElement<T> bind(String eventType, Object eventData, EventFunc handler);
+    public native JQueryElement bind(String eventType, EventFunc2 handler);
 
     /**
      * Attach a handler to an event for the elements.
@@ -421,7 +423,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> bind(String eventType, Object eventData, EventFunc1 handler);
+    public native JQueryElement bind(String eventType, Object eventData, EventFunc handler);
 
     /**
      * Attach a handler to an event for the elements.
@@ -431,7 +433,17 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> bind(String eventType, Object eventData, EventFunc2 handler);
+    public native JQueryElement bind(String eventType, Object eventData, EventFunc1 handler);
+
+    /**
+     * Attach a handler to an event for the elements.
+     * @param eventType A string containing one or more DOM event types, such as "click" or
+     *                  "submit," or custom event names.
+     * @param eventData An object containing data that will be passed to the event handler.
+     * @param handler A function to execute each time the event is triggered.
+     * @return self {@link JQueryElement}
+     */
+    public native JQueryElement bind(String eventType, Object eventData, EventFunc2 handler);
 
     /**
      * Attach a handler to an event for the elements.
@@ -443,28 +455,28 @@ public class JQueryElement<T> extends Node {
      *                      The default is true.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> bind(String eventType, Object eventData, boolean preventBubble);
+    public native JQueryElement bind(String eventType, Object eventData, boolean preventBubble);
 
     /**
      * Attach a handler to an event for the elements.
      * @param events An object containing one or more DOM event types and functions to execute for them.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> bind(Object events);
+    public native JQueryElement bind(Object events);
 
     /**
      * Bind an event handler to the "blur" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> blur(EventFunc1 handler);
+    public native JQueryElement blur(EventFunc1 handler);
 
     /**
      * Bind an event handler to the "blur" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> blur(EventFunc2 handler);
+    public native JQueryElement blur(EventFunc2 handler);
 
     /**
      * Bind an event handler to the "blur" JavaScript event, or trigger that event on an element.
@@ -472,7 +484,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> blur(Object eventData, EventFunc handler);
+    public native JQueryElement blur(Object eventData, EventFunc handler);
 
     /**
      * Bind an event handler to the "blur" JavaScript event, or trigger that event on an element.
@@ -480,7 +492,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> blur(Object eventData, EventFunc1 handler);
+    public native JQueryElement blur(Object eventData, EventFunc1 handler);
 
     /**
      * Bind an event handler to the "blur" JavaScript event, or trigger that event on an element.
@@ -488,13 +500,13 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> blur(Object eventData, EventFunc2 handler);
+    public native JQueryElement blur(Object eventData, EventFunc2 handler);
 
     /**
      * Bind an event handler to the "blur" JavaScript event, or trigger that event on an element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> blur();
+    public native JQueryElement blur();
 
     /**
      * TODO: Reserved for Callbacks:
@@ -506,14 +518,14 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> change(EventFunc1 handler);
+    public native JQueryElement change(EventFunc1 handler);
 
     /**
      * Bind an event handler to the "change" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> change(EventFunc2 handler);
+    public native JQueryElement change(EventFunc2 handler);
 
     /**
      * Bind an event handler to the "change" JavaScript event, or trigger that event on an element.
@@ -521,7 +533,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> change(Object eventData, EventFunc handler);
+    public native JQueryElement change(Object eventData, EventFunc handler);
 
     /**
      * Bind an event handler to the "change" JavaScript event, or trigger that event on an element.
@@ -529,7 +541,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> change(Object eventData, EventFunc1 handler);
+    public native JQueryElement change(Object eventData, EventFunc1 handler);
 
     /**
      * Bind an event handler to the "change" JavaScript event, or trigger that event on an element.
@@ -537,26 +549,26 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> change(Object eventData, EventFunc2 handler);
+    public native JQueryElement change(Object eventData, EventFunc2 handler);
 
     /**
      * Bind an event handler to the "change" JavaScript event, or trigger that event on an element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> change();
+    public native JQueryElement change();
 
     /**
      * Get the children of each element in the set of matched elements, optionally filtered by a selector.
      * @param selector A string containing a selector expression to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> children(String selector);
+    public native JQueryElement children(String selector);
 
     /**
      * Remove from the queue all items that have not yet been run.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> clearQueue();
+    public native JQueryElement clearQueue();
 
     /**
      * Remove from the queue all items that have not yet been run.
@@ -564,7 +576,7 @@ public class JQueryElement<T> extends Node {
      *                  standard effects queue.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> clearQueue(String queueName);
+    public native JQueryElement clearQueue(String queueName);
 
     /**
      * Bind an event handler to the "click" JavaScript event, or trigger that
@@ -572,20 +584,20 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return  self {@link JQueryElement}
      */
-    public native JQueryElement<T> click(MouseEventFunc handler);
+    public native JQueryElement click(MouseEventFunc handler);
 
     /**
      * Bind an event handler to the "click" JavaScript event, or trigger that
      * event on an element.
      * @return  self {@link JQueryElement}
      */
-    public native JQueryElement<T> click();
+    public native JQueryElement click();
 
     /**
      * Create a deep copy of the set of matched elements.
      * @return  self {@link JQueryElement}
      */
-    public native JQueryElement<T> clone();
+    public native JQueryElement clone();
 
     /**
      * Create a deep copy of the set of matched elements.
@@ -593,7 +605,7 @@ public class JQueryElement<T> extends Node {
      *                          the elements. As of jQuery 1.4, element data will be copied as well.
      * @return  self {@link JQueryElement}
      */
-    public native JQueryElement<T> clone(boolean withDataAndEvents);
+    public native JQueryElement clone(boolean withDataAndEvents);
 
     /**
      * Create a deep copy of the set of matched elements.
@@ -604,7 +616,7 @@ public class JQueryElement<T> extends Node {
      *                              the first argument's value (which defaults to false).
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> clone(boolean withDataAndEvents, boolean deepWithDataAndEvents);
+    public native JQueryElement clone(boolean withDataAndEvents, boolean deepWithDataAndEvents);
 
     /**
      * For each element in the set, get the first element that matches the selector by testing the
@@ -612,7 +624,7 @@ public class JQueryElement<T> extends Node {
      * @param selector A string containing a selector expression to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> closest(String selector);
+    public native JQueryElement closest(String selector);
 
     /**
      * For each element in the set, get the first element that matches the selector by testing the
@@ -622,7 +634,7 @@ public class JQueryElement<T> extends Node {
      *                in then the context of the jQuery set will be used instead.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> closest(String selector, Element context);
+    public native JQueryElement closest(String selector, Element context);
 
     /**
      * For each element in the set, get the first element that matches the selector by testing the
@@ -630,7 +642,7 @@ public class JQueryElement<T> extends Node {
      * @param selection A jQuery object to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> closest(JQueryElement selection);
+    public native JQueryElement closest(JQueryElement selection);
 
     /**
      * For each element in the set, get the first element that matches the selector by testing the
@@ -638,20 +650,20 @@ public class JQueryElement<T> extends Node {
      * @param element An element to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> closest(Element element);
+    public native JQueryElement closest(Element element);
 
     /**
      * Get the children of each element in the set of matched elements, including text and comment nodes.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> contents();
+    public native JQueryElement contents();
 
     /**
      * Bind an event handler to the "contextmenu" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> contextmenu(MouseEventFunc handler);
+    public native JQueryElement contextmenu(MouseEventFunc handler);
 
     /**
      * Bind an event handler to the "contextmenu" JavaScript event, or trigger that event on an element.
@@ -659,13 +671,13 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> contextmenu(Object eventData, MouseEventFunc handler);
+    public native JQueryElement contextmenu(Object eventData, MouseEventFunc handler);
 
     /**
      * Bind an event handler to the "contextmenu" JavaScript event, or trigger that event on an element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> contextmenu();
+    public native JQueryElement contextmenu();
 
     /**
      * Get the computed style properties for the first element in the set of matched elements.
@@ -679,7 +691,7 @@ public class JQueryElement<T> extends Node {
      * @param value A value to set for the property.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> css(String propertyName, String value);
+    public native JQueryElement css(String propertyName, String value);
 
     /**
      * Set one or more CSS properties for the set of matched elements.
@@ -688,14 +700,14 @@ public class JQueryElement<T> extends Node {
      *                 the index position of the element in the set and the old value as arguments.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> css(String propertyName, FuncRet2<Integer, Object> function);
+    public native JQueryElement css(String propertyName, FuncRet2<Integer, Object> function);
 
     /**
      * Set one or more CSS properties for the set of matched elements.
      * @param properties An object of property-value pairs to set.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> css(Object properties);
+    public native JQueryElement css(Object properties);
 
     /**
      * Store arbitrary data associated with the matched elements.
@@ -703,14 +715,14 @@ public class JQueryElement<T> extends Node {
      * @param value The new data value; this can be any Javascript type except undefined.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> data(String key, String value);
+    public native JQueryElement data(String key, String value);
 
     /**
      * Store arbitrary data associated with the matched elements.
      * @param obj An object of key-value pairs of data to update.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> data(Object obj);
+    public native JQueryElement data(Object obj);
 
     /**
      * Return the value at the named data store for the first element in the jQuery collection,
@@ -732,7 +744,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> dblclick(MouseEventFunc handler);
+    public native JQueryElement dblclick(MouseEventFunc handler);
 
 
     /**
@@ -741,7 +753,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> dblclick(Object eventData, MouseEventFunc handler);
+    public native JQueryElement dblclick(Object eventData, MouseEventFunc handler);
 
     /**
      * Set a timer to delay execution of subsequent items in the queue.
@@ -749,7 +761,7 @@ public class JQueryElement<T> extends Node {
      *                 item in the queue.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> delay(int duration);
+    public native JQueryElement delay(int duration);
 
     /**
      * Set a timer to delay execution of subsequent items in the queue.
@@ -758,7 +770,7 @@ public class JQueryElement<T> extends Node {
      * @param queueName A string containing the name of the queue. Defaults to fx, the standard effects queue.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> delay(int duration, String queueName);
+    public native JQueryElement delay(int duration, String queueName);
 
     /**
      * Attach a handler to one or more events for all elements that match the selector, now or in the
@@ -769,7 +781,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute at the time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> delegate(String selector, String eventType, EventFunc handler);
+    public native JQueryElement delegate(String selector, String eventType, EventFunc handler);
 
     /**
      * Attach a handler to one or more events for all elements that match the selector, now or in the
@@ -780,7 +792,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute at the time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> delegate(String selector, String eventType, EventFunc1 handler);
+    public native JQueryElement delegate(String selector, String eventType, EventFunc1 handler);
 
     /**
      * Attach a handler to one or more events for all elements that match the selector, now or in the
@@ -791,19 +803,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute at the time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> delegate(String selector, String eventType, EventFunc2 handler);
-
-    /**
-     * Attach a handler to one or more events for all elements that match the selector, now or in the
-     * future, based on a specific set of root elements.
-     * @param selector A selector to filter the elements that trigger the event.
-     * @param eventType A string containing one or more space-separated JavaScript event types, such as
-     *                  "click" or "keydown," or custom event names.
-     * @param eventData An object containing data that will be passed to the event handler.
-     * @param handler A function to execute at the time the event is triggered.
-     * @return self {@link JQueryElement}
-     */
-    public native JQueryElement<T> delegate(String selector, String eventType, Object eventData, EventFunc handler);
+    public native JQueryElement delegate(String selector, String eventType, EventFunc2 handler);
 
     /**
      * Attach a handler to one or more events for all elements that match the selector, now or in the
@@ -815,7 +815,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute at the time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> delegate(String selector, String eventType, Object eventData, EventFunc1 handler);
+    public native JQueryElement delegate(String selector, String eventType, Object eventData, EventFunc handler);
 
     /**
      * Attach a handler to one or more events for all elements that match the selector, now or in the
@@ -827,7 +827,19 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute at the time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> delegate(String selector, String eventType,
+    public native JQueryElement delegate(String selector, String eventType, Object eventData, EventFunc1 handler);
+
+    /**
+     * Attach a handler to one or more events for all elements that match the selector, now or in the
+     * future, based on a specific set of root elements.
+     * @param selector A selector to filter the elements that trigger the event.
+     * @param eventType A string containing one or more space-separated JavaScript event types, such as
+     *                  "click" or "keydown," or custom event names.
+     * @param eventData An object containing data that will be passed to the event handler.
+     * @param handler A function to execute at the time the event is triggered.
+     * @return self {@link JQueryElement}
+     */
+    public native JQueryElement delegate(String selector, String eventType,
                                             Object eventData, EventFunc2 handler);
 
     /**
@@ -837,53 +849,53 @@ public class JQueryElement<T> extends Node {
      * @param events A plain object of one or more event types and functions to execute for them.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> delegate(String selector, Object events);
+    public native JQueryElement delegate(String selector, Object events);
 
     /**
      * Execute the next function on the queue for the matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> dequeue();
+    public native JQueryElement dequeue();
 
     /**
      * Execute the next function on the queue for the matched elements.
      * @param queueName A string containing the name of the queue. Defaults to fx, the standard effects queue.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> dequeue(String queueName);
+    public native JQueryElement dequeue(String queueName);
 
     /**
      * Remove the set of matched elements from the DOM.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> detach();
+    public native JQueryElement detach();
 
     /**
      * Remove the set of matched elements from the DOM.
      * @param selector A selector expression that filters the set of matched elements to be removed.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> detach(String selector);
+    public native JQueryElement detach(String selector);
 
     /**
      * Iterate over a jQuery object, executing a function for each matched element.
      * @param function A function to execute for each matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> each(Func2<Object, Element> function);
+    public native JQueryElement each(Func2<Object, Element> function);
 
     /**
      * Remove all child nodes of the set of matched elements from the DOM.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> empty();
+    public native JQueryElement empty();
 
     /**
      * End the most recent filtering operation in the current chain and return the set of
      * matched elements to its previous state.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> end();
+    public native JQueryElement end();
 
     /**
      * Reduce the set of matched elements to the one at the specified index.
@@ -892,29 +904,21 @@ public class JQueryElement<T> extends Node {
      *              from the last element in the set.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> eq(int index);
+    public native JQueryElement eq(int index);
 
     /**
      * Bind an event handler to the "error" JavaScript event.
      * @param handler A function to execute when the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> error(EventFunc1 handler);
+    public native JQueryElement error(EventFunc1 handler);
 
     /**
      * Bind an event handler to the "error" JavaScript event.
      * @param handler A function to execute when the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> error(EventFunc2 handler);
-
-    /**
-     * Bind an event handler to the "error" JavaScript event.
-     * @param eventData An object containing data that will be passed to the event handler.
-     * @param handler A function to execute when the event is triggered.
-     * @return self {@link JQueryElement}
-     */
-    public native JQueryElement<T> error(Object eventData, EventFunc handler);
+    public native JQueryElement error(EventFunc2 handler);
 
     /**
      * Bind an event handler to the "error" JavaScript event.
@@ -922,7 +926,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute when the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> error(Object eventData, EventFunc1 handler);
+    public native JQueryElement error(Object eventData, EventFunc handler);
 
     /**
      * Bind an event handler to the "error" JavaScript event.
@@ -930,34 +934,42 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute when the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> error(Object eventData, EventFunc2 handler);
+    public native JQueryElement error(Object eventData, EventFunc1 handler);
+
+    /**
+     * Bind an event handler to the "error" JavaScript event.
+     * @param eventData An object containing data that will be passed to the event handler.
+     * @param handler A function to execute when the event is triggered.
+     * @return self {@link JQueryElement}
+     */
+    public native JQueryElement error(Object eventData, EventFunc2 handler);
 
     /**
      * Display the matched elements by fading them to opaque.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeIn();
+    public native JQueryElement fadeIn();
 
     /**
      * Display the matched elements by fading them to opaque.
      * @param duration A string or number determining how long the animation will run.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeIn(double duration);
+    public native JQueryElement fadeIn(double duration);
 
     /**
      * Display the matched elements by fading them to opaque.
      * @param complete A function to call once the animation is complete, called once per matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeIn(Func complete);
+    public native JQueryElement fadeIn(Func complete);
 
     /**
      * Display the matched elements by fading them to opaque.
      * @param easing A string indicating which easing function to use for the transition.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeIn(String easing);
+    public native JQueryElement fadeIn(String easing);
 
     /**
      * Display the matched elements by fading them to opaque.
@@ -965,7 +977,7 @@ public class JQueryElement<T> extends Node {
      * @param complete A function to call once the animation is complete, called once per matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeIn(double duration, Func complete);
+    public native JQueryElement fadeIn(double duration, Func complete);
 
     /**
      * Display the matched elements by fading them to opaque.
@@ -973,7 +985,7 @@ public class JQueryElement<T> extends Node {
      * @param easing A string indicating which easing function to use for the transition.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeIn(double duration, String easing);
+    public native JQueryElement fadeIn(double duration, String easing);
 
     /**
      * Display the matched elements by fading them to opaque.
@@ -982,41 +994,41 @@ public class JQueryElement<T> extends Node {
      * @param complete A function to call once the animation is complete, called once per matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeIn(double duration, String easing, Func complete);
+    public native JQueryElement fadeIn(double duration, String easing, Func complete);
 
     /**
      * Display the matched elements by fading them to opaque.
      * @param options A map of additional options to pass to the method.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeIn(AnimateOptions options);
+    public native JQueryElement fadeIn(AnimateOptions options);
 
     /**
      * Hide the matched elements by fading them to transparent.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeOut();
+    public native JQueryElement fadeOut();
 
     /**
      * Hide the matched elements by fading them to transparent.
      * @param duration A string or number determining how long the animation will run.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeOut(double duration);
+    public native JQueryElement fadeOut(double duration);
 
     /**
      * Display the matched elements by fading them to opaque.
      * @param complete A function to call once the animation is complete, called once per matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeOut(Func complete);
+    public native JQueryElement fadeOut(Func complete);
 
     /**
      * Hide the matched elements by fading them to transparent.
      * @param easing A string indicating which easing function to use for the transition.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeOut(String easing);
+    public native JQueryElement fadeOut(String easing);
 
     /**
      * Hide the matched elements by fading them to transparent.
@@ -1024,7 +1036,7 @@ public class JQueryElement<T> extends Node {
      * @param complete A function to call once the animation is complete, called once per matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeOut(double duration, Func complete);
+    public native JQueryElement fadeOut(double duration, Func complete);
 
     /**
      * Hide the matched elements by fading them to transparent.
@@ -1032,7 +1044,7 @@ public class JQueryElement<T> extends Node {
      * @param easing A string indicating which easing function to use for the transition.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeOut(double duration, String easing);
+    public native JQueryElement fadeOut(double duration, String easing);
 
     /**
      * Hide the matched elements by fading them to transparent.
@@ -1041,14 +1053,14 @@ public class JQueryElement<T> extends Node {
      * @param complete A function to call once the animation is complete, called once per matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeOut(double duration, String easing, Func complete);
+    public native JQueryElement fadeOut(double duration, String easing, Func complete);
 
     /**
      * Hide the matched elements by fading them to transparent.
      * @param options A map of additional options to pass to the method.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeOut(AnimateOptions options);
+    public native JQueryElement fadeOut(AnimateOptions options);
 
     /**
      * Adjust the opacity of the matched elements.
@@ -1056,7 +1068,7 @@ public class JQueryElement<T> extends Node {
      * @param opacity A number between 0 and 1 denoting the target opacity.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeTo(double duration, double opacity);
+    public native JQueryElement fadeTo(double duration, double opacity);
 
     /**
      * Adjust the opacity of the matched elements.
@@ -1065,7 +1077,7 @@ public class JQueryElement<T> extends Node {
      * @param complete A function to call once the animation is complete.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeTo(double duration, double opacity, Func complete);
+    public native JQueryElement fadeTo(double duration, double opacity, Func complete);
 
     /**
      * Adjust the opacity of the matched elements.
@@ -1074,7 +1086,7 @@ public class JQueryElement<T> extends Node {
      * @param easing A string indicating which easing function to use for the transition.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeTo(double duration, double opacity, String easing);
+    public native JQueryElement fadeTo(double duration, double opacity, String easing);
 
     /**
      * Adjust the opacity of the matched elements.
@@ -1084,28 +1096,28 @@ public class JQueryElement<T> extends Node {
      * @param complete A function to call once the animation is complete.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeTo(double duration, double opacity, String easing, Func complete);
+    public native JQueryElement fadeTo(double duration, double opacity, String easing, Func complete);
 
     /**
      * Display or hide the matched elements by animating their opacity.
      * @param duration A string or number determining how long the animation will run.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeToggle(double duration);
+    public native JQueryElement fadeToggle(double duration);
 
     /**
      * Display or hide the matched elements by animating their opacity.
      * @param complete A function to call once the animation is complete, called once per matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeToggle(Func complete);
+    public native JQueryElement fadeToggle(Func complete);
 
     /**
      * Display or hide the matched elements by animating their opacity.
      * @param easing A string indicating which easing function to use for the transition.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeToggle(String easing);
+    public native JQueryElement fadeToggle(String easing);
 
     /**
      * Display or hide the matched elements by animating their opacity.
@@ -1113,7 +1125,7 @@ public class JQueryElement<T> extends Node {
      * @param complete A function to call once the animation is complete, called once per matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeToggle(double duration, Func complete);
+    public native JQueryElement fadeToggle(double duration, Func complete);
 
     /**
      * Display or hide the matched elements by animating their opacity.
@@ -1121,7 +1133,7 @@ public class JQueryElement<T> extends Node {
      * @param easing A string indicating which easing function to use for the transition.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeToggle(double duration, String easing);
+    public native JQueryElement fadeToggle(double duration, String easing);
 
     /**
      * Display or hide the matched elements by animating their opacity.
@@ -1130,42 +1142,42 @@ public class JQueryElement<T> extends Node {
      * @param complete A function to call once the animation is complete, called once per matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeToggle(double duration, String easing, Func complete);
+    public native JQueryElement fadeToggle(double duration, String easing, Func complete);
 
     /**
      * Display or hide the matched elements by animating their opacity.
      * @param options A map of additional options to pass to the method.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> fadeToggle(AnimateOptions options);
+    public native JQueryElement fadeToggle(AnimateOptions options);
 
     /**
      * Reduce the set of matched elements to those that match the selector or pass the function's test.
      * @param selector A string containing a selector expression to match the current set of elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> filter(String selector);
+    public native JQueryElement filter(String selector);
 
     /**
      * Reduce the set of matched elements to those that match the selector or pass the function's test.
      * @param function A function used as a test for each element in the set. this is the current DOM element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> filter(FuncRet2<Integer, Element> function);
+    public native JQueryElement filter(FuncRet2<Integer, Element> function);
 
     /**
      * Reduce the set of matched elements to those that match the selector or pass the function's test.
      * @param elements One or more DOM elements to match the current set of elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> filter(Element... elements);
+    public native JQueryElement filter(Element... elements);
 
     /**
      * Reduce the set of matched elements to those that match the selector or pass the function's test.
      * @param selection An existing jQuery object to match the current set of elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> filter(JQueryElement selection);
+    public native JQueryElement filter(JQueryElement selection);
 
     /**
      * Get the descendants of each element in the current set of matched elements, filtered
@@ -1173,7 +1185,7 @@ public class JQueryElement<T> extends Node {
      * @param selector A string containing a selector expression to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> find(String selector);
+    public native JQueryElement find(String selector);
 
     /**
      * Get the descendants of each element in the current set of matched elements, filtered
@@ -1181,7 +1193,7 @@ public class JQueryElement<T> extends Node {
      * @param elements DOM elements to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> find(Element... elements);
+    public native JQueryElement find(Element... elements);
 
     /**
      * Get the descendants of each element in the current set of matched elements, filtered
@@ -1189,14 +1201,14 @@ public class JQueryElement<T> extends Node {
      * @param selection jQuery object to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> find(JQueryElement selection);
+    public native JQueryElement find(JQueryElement selection);
 
     /**
      * Stop the currently-running animation, remove all queued animations, and complete
      * all animations for the matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> finish();
+    public native JQueryElement finish();
 
     /**
      * Stop the currently-running animation, remove all queued animations, and complete
@@ -1204,35 +1216,27 @@ public class JQueryElement<T> extends Node {
      * @param queue The name of the queue in which to stop animations.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> finish(String queue);
+    public native JQueryElement finish(String queue);
 
     /**
      * Reduce the set of matched elements to the first in the set.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> first();
+    public native JQueryElement first();
 
     /**
      * Bind an event handler to the "focus" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> focus(EventFunc1 handler);
+    public native JQueryElement focus(EventFunc1 handler);
 
     /**
      * Bind an event handler to the "focus" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> focus(EventFunc2 handler);
-
-    /**
-     * Bind an event handler to the "focus" JavaScript event, or trigger that event on an element.
-     * @param eventData An object containing data that will be passed to the event handler.
-     * @param handler A function to execute each time the event is triggered.
-     * @return self {@link JQueryElement}
-     */
-    public native JQueryElement<T> focus(Object eventData, EventFunc handler);
+    public native JQueryElement focus(EventFunc2 handler);
 
     /**
      * Bind an event handler to the "focus" JavaScript event, or trigger that event on an element.
@@ -1240,7 +1244,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> focus(Object eventData, EventFunc1 handler);
+    public native JQueryElement focus(Object eventData, EventFunc handler);
 
     /**
      * Bind an event handler to the "focus" JavaScript event, or trigger that event on an element.
@@ -1248,35 +1252,35 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> focus(Object eventData, EventFunc2 handler);
+    public native JQueryElement focus(Object eventData, EventFunc1 handler);
+
+    /**
+     * Bind an event handler to the "focus" JavaScript event, or trigger that event on an element.
+     * @param eventData An object containing data that will be passed to the event handler.
+     * @param handler A function to execute each time the event is triggered.
+     * @return self {@link JQueryElement}
+     */
+    public native JQueryElement focus(Object eventData, EventFunc2 handler);
 
     /**
      * Bind an event handler to the "focus" JavaScript event, or trigger that event on an element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> focus();
+    public native JQueryElement focus();
 
     /**
      * Bind an event handler to the "focusin" JavaScript event.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> focusin(EventFunc1 handler);
+    public native JQueryElement focusin(EventFunc1 handler);
 
     /**
      * Bind an event handler to the "focusin" JavaScript event.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> focusin(EventFunc2 handler);
-
-    /**
-     * Bind an event handler to the "focusin" JavaScript event.
-     * @param eventData An object containing data that will be passed to the event handler.
-     * @param handler A function to execute each time the event is triggered.
-     * @return self {@link JQueryElement}
-     */
-    public native JQueryElement<T> focusin(Object eventData, EventFunc handler);
+    public native JQueryElement focusin(EventFunc2 handler);
 
     /**
      * Bind an event handler to the "focusin" JavaScript event.
@@ -1284,7 +1288,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> focusin(Object eventData, EventFunc1 handler);
+    public native JQueryElement focusin(Object eventData, EventFunc handler);
 
     /**
      * Bind an event handler to the "focusin" JavaScript event.
@@ -1292,27 +1296,35 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> focusin(Object eventData, EventFunc2 handler);
+    public native JQueryElement focusin(Object eventData, EventFunc1 handler);
+
+    /**
+     * Bind an event handler to the "focusin" JavaScript event.
+     * @param eventData An object containing data that will be passed to the event handler.
+     * @param handler A function to execute each time the event is triggered.
+     * @return self {@link JQueryElement}
+     */
+    public native JQueryElement focusin(Object eventData, EventFunc2 handler);
 
     /**
      * Bind an event handler to the "focusin" JavaScript event.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> focusin();
+    public native JQueryElement focusin();
 
     /**
      * Bind an event handler to the "focusout" JavaScript event.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> focusout(EventFunc1 handler);
+    public native JQueryElement focusout(EventFunc1 handler);
 
     /**
      * Bind an event handler to the "focusout" JavaScript event.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> focusout(EventFunc2 handler);
+    public native JQueryElement focusout(EventFunc2 handler);
 
     /**
      * Bind an event handler to the "focusout" JavaScript event.
@@ -1320,7 +1332,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> focusout(Object eventData, EventFunc handler);
+    public native JQueryElement focusout(Object eventData, EventFunc handler);
 
     /**
      * Bind an event handler to the "focusout" JavaScript event.
@@ -1328,7 +1340,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> focusout(Object eventData, EventFunc1 handler);
+    public native JQueryElement focusout(Object eventData, EventFunc1 handler);
 
     /**
      * Bind an event handler to the "focusout" JavaScript event.
@@ -1336,13 +1348,13 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> focusout(Object eventData, EventFunc2 handler);
+    public native JQueryElement focusout(Object eventData, EventFunc2 handler);
 
     /**
      * Bind an event handler to the "focusout" JavaScript event.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> focusout();
+    public native JQueryElement focusout();
 
     /**
      * Retrieve one of the elements matched by the jQuery object.
@@ -1364,7 +1376,7 @@ public class JQueryElement<T> extends Node {
      * @param selector A string containing a selector expression to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> has(String selector);
+    public native JQueryElement has(String selector);
 
     /**
      * Reduce the set of matched elements to those that have a descendant that matches
@@ -1372,7 +1384,7 @@ public class JQueryElement<T> extends Node {
      * @param contained A DOM element to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> has(Element contained);
+    public native JQueryElement has(Element contained);
 
     /**
      * Determine whether any of the matched elements are assigned the given class.
@@ -1398,7 +1410,7 @@ public class JQueryElement<T> extends Node {
      * @param height An integer with an optional unit of measure appended (as a string).
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> height(String height);
+    public native JQueryElement height(String height);
 
     /**
      * Set the CSS height of every matched element.
@@ -1407,20 +1419,20 @@ public class JQueryElement<T> extends Node {
      *                 this refers to the current element in the set. You can return String or Number.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> height(FuncRet2<Integer, Integer> function);
+    public native JQueryElement height(FuncRet2<Integer, Integer> function);
 
     /**
      * Hide the matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> hide();
+    public native JQueryElement hide();
 
     /**
      * Hide the matched elements.
      * @param duration A string or number determining how long the animation will run.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> hide(double duration);
+    public native JQueryElement hide(double duration);
 
     /**
      * Hide the matched elements.
@@ -1428,7 +1440,7 @@ public class JQueryElement<T> extends Node {
      *                 matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> hide(Func complete);
+    public native JQueryElement hide(Func complete);
 
     /**
      * Hide the matched elements.
@@ -1437,14 +1449,14 @@ public class JQueryElement<T> extends Node {
      *                 matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> hide(double duration, Func complete);
+    public native JQueryElement hide(double duration, Func complete);
 
     /**
      * Hide the matched elements.
      * @param options A map of additional options to pass to the method.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> hide(AnimateOptions options);
+    public native JQueryElement hide(AnimateOptions options);
 
     /**
      * Bind two handlers to the matched elements, to be executed when the mouse pointer
@@ -1453,7 +1465,7 @@ public class JQueryElement<T> extends Node {
      * @param handlerOut A function to execute when the mouse pointer leaves the element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> hover(EventFunc1 handlerIn, EventFunc handlerOut);
+    public native JQueryElement hover(EventFunc1 handlerIn, EventFunc handlerOut);
 
     /**
      * Bind two handlers to the matched elements, to be executed when the mouse pointer
@@ -1462,7 +1474,7 @@ public class JQueryElement<T> extends Node {
      * @param handlerOut A function to execute when the mouse pointer leaves the element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> hover(EventFunc1 handlerIn, EventFunc1 handlerOut);
+    public native JQueryElement hover(EventFunc1 handlerIn, EventFunc1 handlerOut);
 
     /**
      * Bind two handlers to the matched elements, to be executed when the mouse pointer
@@ -1471,7 +1483,7 @@ public class JQueryElement<T> extends Node {
      * @param handlerOut A function to execute when the mouse pointer leaves the element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> hover(EventFunc2 handlerIn, EventFunc2 handlerOut);
+    public native JQueryElement hover(EventFunc2 handlerIn, EventFunc2 handlerOut);
 
     /**
      * Bind two handlers to the matched elements, to be executed when the mouse pointer
@@ -1479,7 +1491,7 @@ public class JQueryElement<T> extends Node {
      * @param handlerOut A function to execute when the mouse pointer leaves the element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> hover(EventFunc1 handlerOut);
+    public native JQueryElement hover(EventFunc1 handlerOut);
 
     /**
      * Bind two handlers to the matched elements, to be executed when the mouse pointer
@@ -1487,7 +1499,7 @@ public class JQueryElement<T> extends Node {
      * @param handlerOut A function to execute when the mouse pointer leaves the element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> hover(EventFunc2 handlerOut);
+    public native JQueryElement hover(EventFunc2 handlerOut);
 
     /**
      * Get the HTML contents of the first element in the set of matched elements.
@@ -1499,7 +1511,7 @@ public class JQueryElement<T> extends Node {
      * @param htmlString A string of HTML to set as the content of each matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> html(String htmlString);
+    public native JQueryElement html(String htmlString);
 
     /**
      * Set the HTML contents of each element in the set of matched elements.
@@ -1510,7 +1522,7 @@ public class JQueryElement<T> extends Node {
      *                 current element in the set.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> html(FuncRet2<Integer, String> function);
+    public native JQueryElement html(FuncRet2<Integer, String> function);
 
     /**
      * Search for a given element from among the matched elements.
@@ -1546,14 +1558,14 @@ public class JQueryElement<T> extends Node {
      * @param value A number along with an optional unit of measure appended (as a string).
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> innerHeight(String value);
+    public native JQueryElement innerHeight(String value);
 
     /**
      * Set the CSS inner height of each element in the set of matched elements.
      * @param value A number representing the number of pixels.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> innerHeight(double value);
+    public native JQueryElement innerHeight(double value);
 
     /**
      * Set the CSS inner height of each element in the set of matched elements.
@@ -1563,7 +1575,7 @@ public class JQueryElement<T> extends Node {
      *                 element in the set. Return String or Number.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> innerHeight(FuncRet2<Integer, Double> function);
+    public native JQueryElement innerHeight(FuncRet2<Integer, Double> function);
 
     /**
      * Get the current computed width for the first element in the set of matched elements,
@@ -1576,14 +1588,14 @@ public class JQueryElement<T> extends Node {
      * @param value A number along with an optional unit of measure appended (as a string).
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> innerWidth(String value);
+    public native JQueryElement innerWidth(String value);
 
     /**
      * Set the CSS inner width of each element in the set of matched elements.
      * @param value A number representing the number of pixels.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> innerWidth(double value);
+    public native JQueryElement innerWidth(double value);
 
     /**
      * Set the CSS inner width of each element in the set of matched elements.
@@ -1593,7 +1605,7 @@ public class JQueryElement<T> extends Node {
      *                 element in the set. Return String or Number.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> innerWidth(FuncRet2<Integer, Double> function);
+    public native JQueryElement innerWidth(FuncRet2<Integer, Double> function);
 
     /**
      * Insert every element in the set of matched elements after the target.
@@ -1601,7 +1613,7 @@ public class JQueryElement<T> extends Node {
      *                 element(s) specified by this parameter.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> insertAfter(String selector);
+    public native JQueryElement insertAfter(String selector);
 
     /**
      * Insert every element in the set of matched elements after the target.
@@ -1609,7 +1621,7 @@ public class JQueryElement<T> extends Node {
      *                 element(s) specified by this parameter.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> insertAfter(Element... element);
+    public native JQueryElement insertAfter(Element... element);
 
     /**
      * Insert every element in the set of matched elements after the target.
@@ -1617,7 +1629,7 @@ public class JQueryElement<T> extends Node {
      *                 element(s) specified by this parameter.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> insertAfter(JQueryElement element);
+    public native JQueryElement insertAfter(JQueryElement element);
 
     /**
      * Insert every element in the set of matched elements before the target.
@@ -1625,7 +1637,7 @@ public class JQueryElement<T> extends Node {
      *                 element(s) specified by this parameter.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> insertBefore(JQueryElement element);
+    public native JQueryElement insertBefore(JQueryElement element);
 
     /**
      * Check the current matched set of elements against a selector, element, or jQuery object
@@ -1667,7 +1679,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> keydown(KeyEventFunc handler);
+    public native JQueryElement keydown(KeyEventFunc handler);
 
     /**
      * Bind an event handler to the "keydown" JavaScript event, or trigger that event on an element.
@@ -1675,20 +1687,20 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> keydown(Object eventData, KeyEventFunc handler);
+    public native JQueryElement keydown(Object eventData, KeyEventFunc handler);
 
     /**
      * Bind an event handler to the "keydown" JavaScript event, or trigger that event on an element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> keydown();
+    public native JQueryElement keydown();
 
     /**
      * Bind an event handler to the "keypress" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> keypress(KeyEventFunc handler);
+    public native JQueryElement keypress(KeyEventFunc handler);
 
     /**
      * Bind an event handler to the "keypress" JavaScript event, or trigger that event on an element.
@@ -1696,20 +1708,20 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> keypress(Object eventData, KeyEventFunc handler);
+    public native JQueryElement keypress(Object eventData, KeyEventFunc handler);
 
     /**
      * Bind an event handler to the "keypress" JavaScript event, or trigger that event on an element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> keypress();
+    public native JQueryElement keypress();
 
     /**
      * Bind an event handler to the "keyup" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> keyup(KeyEventFunc handler);
+    public native JQueryElement keyup(KeyEventFunc handler);
 
     /**
      * Bind an event handler to the "keyup" JavaScript event, or trigger that event on an element.
@@ -1717,26 +1729,26 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> keyup(Object eventData, KeyEventFunc handler);
+    public native JQueryElement keyup(Object eventData, KeyEventFunc handler);
 
     /**
      * Bind an event handler to the "keyup" JavaScript event, or trigger that event on an element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> keyup();
+    public native JQueryElement keyup();
 
     /**
      * Reduce the set of matched elements to the final one in the set.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> last();
+    public native JQueryElement last();
 
     /**
      * Load data from the server and place the returned HTML into the matched element.
      * @param url A string containing the URL to which the request is sent.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> load(String url);
+    public native JQueryElement load(String url);
 
     /**
      * Load data from the server and place the returned HTML into the matched element.
@@ -1744,7 +1756,7 @@ public class JQueryElement<T> extends Node {
      * @param data A plain object or string that is sent to the server with the request.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> load(String url, String data);
+    public native JQueryElement load(String url, String data);
 
     /**
      * Load data from the server and place the returned HTML into the matched element.
@@ -1753,29 +1765,21 @@ public class JQueryElement<T> extends Node {
      * @param complete A callback function that is executed when the request completes.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> load(String url, String data, Func3<String, String, Object> complete);
+    public native JQueryElement load(String url, String data, Func3<String, String, Object> complete);
 
     /**
      * Bind an event handler to the "load" JavaScript event.
      * @param handler A function to execute when the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> load(EventFunc1 handler);
+    public native JQueryElement load(EventFunc1 handler);
 
     /**
      * Bind an event handler to the "load" JavaScript event.
      * @param handler A function to execute when the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> load(EventFunc2 handler);
-
-    /**
-     * Bind an event handler to the "load" JavaScript event.
-     * @param eventData An object containing data that will be passed to the event handler.
-     * @param handler A function to execute when the event is triggered.
-     * @return self {@link JQueryElement}
-     */
-    public native JQueryElement<T> load(Object eventData, EventFunc handler);
+    public native JQueryElement load(EventFunc2 handler);
 
     /**
      * Bind an event handler to the "load" JavaScript event.
@@ -1783,7 +1787,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute when the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> load(Object eventData, EventFunc1 handler);
+    public native JQueryElement load(Object eventData, EventFunc handler);
 
     /**
      * Bind an event handler to the "load" JavaScript event.
@@ -1791,7 +1795,15 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute when the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> load(Object eventData, EventFunc2 handler);
+    public native JQueryElement load(Object eventData, EventFunc1 handler);
+
+    /**
+     * Bind an event handler to the "load" JavaScript event.
+     * @param eventData An object containing data that will be passed to the event handler.
+     * @param handler A function to execute when the event is triggered.
+     * @return self {@link JQueryElement}
+     */
+    public native JQueryElement load(Object eventData, EventFunc2 handler);
 
     /**
      * Pass each element in the current matched set through a function, producing a new jQuery
@@ -1799,29 +1811,21 @@ public class JQueryElement<T> extends Node {
      * @param callback A function object that will be invoked for each element in the current set.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> map(FuncRet2<Integer, Element> callback);
+    public native JQueryElement map(FuncRet2<Integer, Element> callback);
 
     /**
      * Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mousedown(EventFunc1 handler);
+    public native JQueryElement mousedown(EventFunc1 handler);
 
     /**
      * Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mousedown(EventFunc2 handler);
-
-    /**
-     * Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
-     * @param eventData An object containing data that will be passed to the event handler.
-     * @param handler A function to execute each time the event is triggered.
-     * @return self {@link JQueryElement}
-     */
-    public native JQueryElement<T> mousedown(Object eventData, EventFunc handler);
+    public native JQueryElement mousedown(EventFunc2 handler);
 
     /**
      * Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
@@ -1829,7 +1833,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mousedown(Object eventData, EventFunc1 handler);
+    public native JQueryElement mousedown(Object eventData, EventFunc handler);
 
     /**
      * Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
@@ -1837,35 +1841,35 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mousedown(Object eventData, EventFunc2 handler);
+    public native JQueryElement mousedown(Object eventData, EventFunc1 handler);
+
+    /**
+     * Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
+     * @param eventData An object containing data that will be passed to the event handler.
+     * @param handler A function to execute each time the event is triggered.
+     * @return self {@link JQueryElement}
+     */
+    public native JQueryElement mousedown(Object eventData, EventFunc2 handler);
 
     /**
      * Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mousedown();
+    public native JQueryElement mousedown();
 
     /**
      * Bind an event handler to the "mouseenter" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseenter(EventFunc1 handler);
+    public native JQueryElement mouseenter(EventFunc1 handler);
 
     /**
      * Bind an event handler to the "mouseenter" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseenter(EventFunc2 handler);
-
-    /**
-     * Bind an event handler to the "mouseenter" JavaScript event, or trigger that event on an element.
-     * @param eventData An object containing data that will be passed to the event handler.
-     * @param handler A function to execute each time the event is triggered.
-     * @return self {@link JQueryElement}
-     */
-    public native JQueryElement<T> mouseenter(Object eventData, EventFunc handler);
+    public native JQueryElement mouseenter(EventFunc2 handler);
 
     /**
      * Bind an event handler to the "mouseenter" JavaScript event, or trigger that event on an element.
@@ -1873,7 +1877,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseenter(Object eventData, EventFunc1 handler);
+    public native JQueryElement mouseenter(Object eventData, EventFunc handler);
 
     /**
      * Bind an event handler to the "mouseenter" JavaScript event, or trigger that event on an element.
@@ -1881,35 +1885,35 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseenter(Object eventData, EventFunc2 handler);
+    public native JQueryElement mouseenter(Object eventData, EventFunc1 handler);
+
+    /**
+     * Bind an event handler to the "mouseenter" JavaScript event, or trigger that event on an element.
+     * @param eventData An object containing data that will be passed to the event handler.
+     * @param handler A function to execute each time the event is triggered.
+     * @return self {@link JQueryElement}
+     */
+    public native JQueryElement mouseenter(Object eventData, EventFunc2 handler);
 
     /**
      * Bind an event handler to the "mouseenter" JavaScript event, or trigger that event on an element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseenter();
+    public native JQueryElement mouseenter();
 
     /**
      * Bind an event handler to the "mouseleave" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseleave(EventFunc1 handler);
+    public native JQueryElement mouseleave(EventFunc1 handler);
 
     /**
      * Bind an event handler to the "mouseleave" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseleave(EventFunc2 handler);
-
-    /**
-     * Bind an event handler to the "mouseleave" JavaScript event, or trigger that event on an element.
-     * @param eventData An object containing data that will be passed to the event handler.
-     * @param handler A function to execute each time the event is triggered.
-     * @return self {@link JQueryElement}
-     */
-    public native JQueryElement<T> mouseleave(Object eventData, EventFunc handler);
+    public native JQueryElement mouseleave(EventFunc2 handler);
 
     /**
      * Bind an event handler to the "mouseleave" JavaScript event, or trigger that event on an element.
@@ -1917,7 +1921,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseleave(Object eventData, EventFunc1 handler);
+    public native JQueryElement mouseleave(Object eventData, EventFunc handler);
 
     /**
      * Bind an event handler to the "mouseleave" JavaScript event, or trigger that event on an element.
@@ -1925,35 +1929,35 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseleave(Object eventData, EventFunc2 handler);
+    public native JQueryElement mouseleave(Object eventData, EventFunc1 handler);
+
+    /**
+     * Bind an event handler to the "mouseleave" JavaScript event, or trigger that event on an element.
+     * @param eventData An object containing data that will be passed to the event handler.
+     * @param handler A function to execute each time the event is triggered.
+     * @return self {@link JQueryElement}
+     */
+    public native JQueryElement mouseleave(Object eventData, EventFunc2 handler);
 
     /**
      * Bind an event handler to the "mouseleave" JavaScript event, or trigger that event on an element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseleave();
+    public native JQueryElement mouseleave();
 
     /**
      * Bind an event handler to the "mousemove" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mousemove(EventFunc1 handler);
+    public native JQueryElement mousemove(EventFunc1 handler);
 
     /**
      * Bind an event handler to the "mousemove" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mousemove(EventFunc2 handler);
-
-    /**
-     * Bind an event handler to the "mousemove" JavaScript event, or trigger that event on an element.
-     * @param eventData An object containing data that will be passed to the event handler.
-     * @param handler A function to execute each time the event is triggered.
-     * @return self {@link JQueryElement}
-     */
-    public native JQueryElement<T> mousemove(Object eventData, EventFunc handler);
+    public native JQueryElement mousemove(EventFunc2 handler);
 
     /**
      * Bind an event handler to the "mousemove" JavaScript event, or trigger that event on an element.
@@ -1961,7 +1965,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mousemove(Object eventData, EventFunc1 handler);
+    public native JQueryElement mousemove(Object eventData, EventFunc handler);
 
     /**
      * Bind an event handler to the "mousemove" JavaScript event, or trigger that event on an element.
@@ -1969,35 +1973,35 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mousemove(Object eventData, EventFunc2 handler);
+    public native JQueryElement mousemove(Object eventData, EventFunc1 handler);
+
+    /**
+     * Bind an event handler to the "mousemove" JavaScript event, or trigger that event on an element.
+     * @param eventData An object containing data that will be passed to the event handler.
+     * @param handler A function to execute each time the event is triggered.
+     * @return self {@link JQueryElement}
+     */
+    public native JQueryElement mousemove(Object eventData, EventFunc2 handler);
 
     /**
      * Bind an event handler to the "mousemove" JavaScript event, or trigger that event on an element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mousemove();
+    public native JQueryElement mousemove();
 
     /**
      * Bind an event handler to the "mouseout" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseout(EventFunc1 handler);
+    public native JQueryElement mouseout(EventFunc1 handler);
 
     /**
      * Bind an event handler to the "mouseout" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseout(EventFunc2 handler);
-
-    /**
-     * Bind an event handler to the "mouseout" JavaScript event, or trigger that event on an element.
-     * @param eventData An object containing data that will be passed to the event handler.
-     * @param handler A function to execute each time the event is triggered.
-     * @return self {@link JQueryElement}
-     */
-    public native JQueryElement<T> mouseout(Object eventData, EventFunc handler);
+    public native JQueryElement mouseout(EventFunc2 handler);
 
     /**
      * Bind an event handler to the "mouseout" JavaScript event, or trigger that event on an element.
@@ -2005,7 +2009,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseout(Object eventData, EventFunc1 handler);
+    public native JQueryElement mouseout(Object eventData, EventFunc handler);
 
     /**
      * Bind an event handler to the "mouseout" JavaScript event, or trigger that event on an element.
@@ -2013,35 +2017,35 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseout(Object eventData, EventFunc2 handler);
+    public native JQueryElement mouseout(Object eventData, EventFunc1 handler);
+
+    /**
+     * Bind an event handler to the "mouseout" JavaScript event, or trigger that event on an element.
+     * @param eventData An object containing data that will be passed to the event handler.
+     * @param handler A function to execute each time the event is triggered.
+     * @return self {@link JQueryElement}
+     */
+    public native JQueryElement mouseout(Object eventData, EventFunc2 handler);
 
     /**
      * Bind an event handler to the "mouseout" JavaScript event, or trigger that event on an element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseout();
+    public native JQueryElement mouseout();
 
     /**
      * Bind an event handler to the "mouseover" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseover(EventFunc1 handler);
+    public native JQueryElement mouseover(EventFunc1 handler);
 
     /**
      * Bind an event handler to the "mouseover" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseover(EventFunc2 handler);
-
-    /**
-     * Bind an event handler to the "mouseover" JavaScript event, or trigger that event on an element.
-     * @param eventData An object containing data that will be passed to the event handler.
-     * @param handler A function to execute each time the event is triggered.
-     * @return self {@link JQueryElement}
-     */
-    public native JQueryElement<T> mouseover(Object eventData, EventFunc handler);
+    public native JQueryElement mouseover(EventFunc2 handler);
 
     /**
      * Bind an event handler to the "mouseover" JavaScript event, or trigger that event on an element.
@@ -2049,7 +2053,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseover(Object eventData, EventFunc1 handler);
+    public native JQueryElement mouseover(Object eventData, EventFunc handler);
 
     /**
      * Bind an event handler to the "mouseover" JavaScript event, or trigger that event on an element.
@@ -2057,27 +2061,35 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseover(Object eventData, EventFunc2 handler);
+    public native JQueryElement mouseover(Object eventData, EventFunc1 handler);
+
+    /**
+     * Bind an event handler to the "mouseover" JavaScript event, or trigger that event on an element.
+     * @param eventData An object containing data that will be passed to the event handler.
+     * @param handler A function to execute each time the event is triggered.
+     * @return self {@link JQueryElement}
+     */
+    public native JQueryElement mouseover(Object eventData, EventFunc2 handler);
 
     /**
      * Bind an event handler to the "mouseover" JavaScript event, or trigger that event on an element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseover();
+    public native JQueryElement mouseover();
 
     /**
      * Bind an event handler to the "mouseup" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseup(EventFunc1 handler);
+    public native JQueryElement mouseup(EventFunc1 handler);
 
     /**
      * Bind an event handler to the "mouseup" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseup(EventFunc2 handler);
+    public native JQueryElement mouseup(EventFunc2 handler);
 
     /**
      * Bind an event handler to the "mouseup" JavaScript event, or trigger that event on an element.
@@ -2085,7 +2097,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseup(Object eventData, EventFunc handler);
+    public native JQueryElement mouseup(Object eventData, EventFunc handler);
 
     /**
      * Bind an event handler to the "mouseup" JavaScript event, or trigger that event on an element.
@@ -2093,7 +2105,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseup(Object eventData, EventFunc1 handler);
+    public native JQueryElement mouseup(Object eventData, EventFunc1 handler);
 
     /**
      * Bind an event handler to the "mouseup" JavaScript event, or trigger that event on an element.
@@ -2101,20 +2113,20 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseup(Object eventData, EventFunc2 handler);
+    public native JQueryElement mouseup(Object eventData, EventFunc2 handler);
 
     /**
      * Bind an event handler to the "mouseup" JavaScript event, or trigger that event on an element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> mouseup();
+    public native JQueryElement mouseup();
 
     /**
      * Get the immediately following sibling of each element in the set of matched elements. If a selector
      * is provided, it retrieves the next sibling only if it matches that selector.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> next();
+    public native JQueryElement next();
 
     /**
      * Get the immediately following sibling of each element in the set of matched elements. If a selector
@@ -2122,14 +2134,14 @@ public class JQueryElement<T> extends Node {
      * @param selector A string containing a selector expression to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> next(String selector);
+    public native JQueryElement next(String selector);
 
     /**
      * Get all following siblings of each element in the set of matched elements, optionally
      * filtered by a selector.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> nextAll();
+    public native JQueryElement nextAll();
 
     /**
      * Get all following siblings of each element in the set of matched elements, optionally
@@ -2137,7 +2149,7 @@ public class JQueryElement<T> extends Node {
      * @param selector A string containing a selector expression to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> nextAll(String selector);
+    public native JQueryElement nextAll(String selector);
 
     /**
      * Get all following siblings of each element up to but not including the element matched by
@@ -2147,7 +2159,7 @@ public class JQueryElement<T> extends Node {
      * @param filter A string containing a selector expression to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> nextUntil(String selector, String filter);
+    public native JQueryElement nextUntil(String selector, String filter);
 
     /**
      * Get all following siblings of each element up to but not including the element matched by
@@ -2155,7 +2167,7 @@ public class JQueryElement<T> extends Node {
      * @param element A DOM node indicating where to stop matching following sibling elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> nextUntil(Element element);
+    public native JQueryElement nextUntil(Element element);
 
     /**
      * Get all following siblings of each element up to but not including the element matched by
@@ -2164,7 +2176,7 @@ public class JQueryElement<T> extends Node {
      * @param filter A string containing a selector expression to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> nextUntil(Element element, String filter);
+    public native JQueryElement nextUntil(Element element, String filter);
 
     /**
      * Get all following siblings of each element up to but not including the element matched by
@@ -2172,7 +2184,7 @@ public class JQueryElement<T> extends Node {
      * @param element A jQuery object indicating where to stop matching following sibling elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> nextUntil(JQueryElement element);
+    public native JQueryElement nextUntil(JQueryElement element);
 
     /**
      * Get all following siblings of each element up to but not including the element matched by
@@ -2181,7 +2193,7 @@ public class JQueryElement<T> extends Node {
      * @param filter A string containing a selector expression to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> nextUntil(JQueryElement element, String filter);
+    public native JQueryElement nextUntil(JQueryElement element, String filter);
 
     /**
      * Remove elements from the set of matched elements.
@@ -2189,7 +2201,7 @@ public class JQueryElement<T> extends Node {
      *                 elements to match against the set.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> not(String selector);
+    public native JQueryElement not(String selector);
 
     /**
      * Remove elements from the set of matched elements.
@@ -2198,34 +2210,34 @@ public class JQueryElement<T> extends Node {
      *                 is the DOM element. Within the function, this refers to the current DOM element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> not(FuncRet2<Integer, Element> function);
+    public native JQueryElement not(FuncRet2<Integer, Element> function);
 
     /**
      * Remove elements from the set of matched elements.
      * @param elements An existing jQuery object to match the current set of elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> not(Element... elements);
+    public native JQueryElement not(Element... elements);
 
     /**
      * Remove elements from the set of matched elements.
      * @param selection An existing jQuery object to match the current set of elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> not(JQueryElement selection);
+    public native JQueryElement not(JQueryElement selection);
 
     /**
      * Remove an event handler.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> off();
+    public native JQueryElement off();
 
     /**
      * Remove an event handler.
      * @param event A jQuery.Event object.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> off(Event event);
+    public native JQueryElement off(Event event);
 
     /**
      * Remove an event handler.
@@ -2233,17 +2245,7 @@ public class JQueryElement<T> extends Node {
      *               namespaces, such as "click", "keydown.myPlugin", or ".myPlugin".
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> off(String events);
-
-    /**
-     * Remove an event handler.
-     * @param events One or more space-separated event types and optional namespaces, or just
-     *               namespaces, such as "click", "keydown.myPlugin", or ".myPlugin".
-     * @param handler A handler function previously attached for the event(s), or the special
-     *                value false.
-     * @return self {@link JQueryElement}
-     */
-    public native JQueryElement<T> off(String events, EventFunc handler);
+    public native JQueryElement off(String events);
 
     /**
      * Remove an event handler.
@@ -2253,7 +2255,7 @@ public class JQueryElement<T> extends Node {
      *                value false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> off(String events, EventFunc1 handler);
+    public native JQueryElement off(String events, EventFunc handler);
 
     /**
      * Remove an event handler.
@@ -2263,7 +2265,7 @@ public class JQueryElement<T> extends Node {
      *                value false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> off(String events, EventFunc2 handler);
+    public native JQueryElement off(String events, EventFunc1 handler);
 
     /**
      * Remove an event handler.
@@ -2273,7 +2275,17 @@ public class JQueryElement<T> extends Node {
      *                value false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> off(String events, EventFunc3 handler);
+    public native JQueryElement off(String events, EventFunc2 handler);
+
+    /**
+     * Remove an event handler.
+     * @param events One or more space-separated event types and optional namespaces, or just
+     *               namespaces, such as "click", "keydown.myPlugin", or ".myPlugin".
+     * @param handler A handler function previously attached for the event(s), or the special
+     *                value false.
+     * @return self {@link JQueryElement}
+     */
+    public native JQueryElement off(String events, EventFunc3 handler);
 
     /**
      * Remove an event handler.
@@ -2285,7 +2297,7 @@ public class JQueryElement<T> extends Node {
      *                value false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> off(String events, String selector, EventFunc handler);
+    public native JQueryElement off(String events, String selector, EventFunc handler);
 
     /**
      * Remove an event handler.
@@ -2297,7 +2309,7 @@ public class JQueryElement<T> extends Node {
      *                value false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> off(String events, String selector, EventFunc1 handler);
+    public native JQueryElement off(String events, String selector, EventFunc1 handler);
 
     /**
      * Remove an event handler.
@@ -2309,7 +2321,7 @@ public class JQueryElement<T> extends Node {
      *                value false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> off(String events, String selector, EventFunc2 handler);
+    public native JQueryElement off(String events, String selector, EventFunc2 handler);
 
     /**
      * Remove an event handler.
@@ -2321,20 +2333,20 @@ public class JQueryElement<T> extends Node {
      *                value false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> off(String events, String selector, EventFunc3 handler);
+    public native JQueryElement off(String events, String selector, EventFunc3 handler);
 
     /**
      * Add an event handler.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> on();
+    public native JQueryElement on();
 
     /**
      * Add an event handler.
      * @param event A jQuery.Event object.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> on(Event event);
+    public native JQueryElement on(Event event);
 
     /**
      * Add an event handler.
@@ -2342,17 +2354,7 @@ public class JQueryElement<T> extends Node {
      *               namespaces, such as "click", "keydown.myPlugin", or ".myPlugin".
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> on(String events);
-
-    /**
-     * Add an event handler.
-     * @param events One or more space-separated event types and optional namespaces, or just
-     *               namespaces, such as "click", "keydown.myPlugin", or ".myPlugin".
-     * @param handler A handler function previously attached for the event(s), or the special
-     *                value false.
-     * @return self {@link JQueryElement}
-     */
-    public native JQueryElement<T> on(String events, EventFunc handler);
+    public native JQueryElement on(String events);
 
     /**
      * Add an event handler.
@@ -2362,7 +2364,7 @@ public class JQueryElement<T> extends Node {
      *                value false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> on(String events, EventFunc1 handler);
+    public native JQueryElement on(String events, EventFunc handler);
 
     /**
      * Add an event handler.
@@ -2372,7 +2374,7 @@ public class JQueryElement<T> extends Node {
      *                value false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> on(String events, EventFunc2 handler);
+    public native JQueryElement on(String events, EventFunc1 handler);
 
     /**
      * Add an event handler.
@@ -2382,7 +2384,17 @@ public class JQueryElement<T> extends Node {
      *                value false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> on(String events, EventFunc3 handler);
+    public native JQueryElement on(String events, EventFunc2 handler);
+
+    /**
+     * Add an event handler.
+     * @param events One or more space-separated event types and optional namespaces, or just
+     *               namespaces, such as "click", "keydown.myPlugin", or ".myPlugin".
+     * @param handler A handler function previously attached for the event(s), or the special
+     *                value false.
+     * @return self {@link JQueryElement}
+     */
+    public native JQueryElement on(String events, EventFunc3 handler);
 
     /**
      * Add an event handler.
@@ -2394,7 +2406,7 @@ public class JQueryElement<T> extends Node {
      *                value false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> on(String events, String selector, EventFunc handler);
+    public native JQueryElement on(String events, String selector, EventFunc handler);
 
     /**
      * Add an event handler.
@@ -2406,7 +2418,7 @@ public class JQueryElement<T> extends Node {
      *                value false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> on(String events, String selector, EventFunc1 handler);
+    public native JQueryElement on(String events, String selector, EventFunc1 handler);
 
     /**
      * Add an event handler.
@@ -2418,14 +2430,14 @@ public class JQueryElement<T> extends Node {
      *                value false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> on(String events, String selector, EventFunc2 handler);
+    public native JQueryElement on(String events, String selector, EventFunc2 handler);
 
     /**
      * Attach a handler to an event for the elements. The handler is
      * executed at most once per element per event type.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> one();
+    public native JQueryElement one();
 
     /**
      * Attach a handler to an event for the elements. The handler is
@@ -2433,7 +2445,7 @@ public class JQueryElement<T> extends Node {
      * @param event A jQuery.Event object.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> one(Event event);
+    public native JQueryElement one(Event event);
 
     /**
      * Attach a handler to an event for the elements. The handler is
@@ -2442,18 +2454,7 @@ public class JQueryElement<T> extends Node {
      *               namespaces, such as "click", "keydown.myPlugin", or ".myPlugin".
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> one(String events);
-
-    /**
-     * Attach a handler to an event for the elements. The handler is
-     * executed at most once per element per event type.
-     * @param events One or more space-separated event types and optional namespaces, or just
-     *               namespaces, such as "click", "keydown.myPlugin", or ".myPlugin".
-     * @param handler A handler function previously attached for the event(s), or the special
-     *                value false.
-     * @return self {@link JQueryElement}
-     */
-    public native JQueryElement<T> one(String events, EventFunc handler);
+    public native JQueryElement one(String events);
 
     /**
      * Attach a handler to an event for the elements. The handler is
@@ -2464,7 +2465,7 @@ public class JQueryElement<T> extends Node {
      *                value false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> one(String events, EventFunc1 handler);
+    public native JQueryElement one(String events, EventFunc handler);
 
     /**
      * Attach a handler to an event for the elements. The handler is
@@ -2475,7 +2476,18 @@ public class JQueryElement<T> extends Node {
      *                value false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> one(String events, EventFunc2 handler);
+    public native JQueryElement one(String events, EventFunc1 handler);
+
+    /**
+     * Attach a handler to an event for the elements. The handler is
+     * executed at most once per element per event type.
+     * @param events One or more space-separated event types and optional namespaces, or just
+     *               namespaces, such as "click", "keydown.myPlugin", or ".myPlugin".
+     * @param handler A handler function previously attached for the event(s), or the special
+     *                value false.
+     * @return self {@link JQueryElement}
+     */
+    public native JQueryElement one(String events, EventFunc2 handler);
 
     /**
      * Attach a handler to an event for the elements. The handler is
@@ -2488,7 +2500,7 @@ public class JQueryElement<T> extends Node {
      *                value false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> one(String events, String selector, EventFunc handler);
+    public native JQueryElement one(String events, String selector, EventFunc handler);
 
     /**
      * Attach a handler to an event for the elements. The handler is
@@ -2501,7 +2513,7 @@ public class JQueryElement<T> extends Node {
      *                value false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> one(String events, String selector, EventFunc1 handler);
+    public native JQueryElement one(String events, String selector, EventFunc1 handler);
 
     /**
      * Attach a handler to an event for the elements. The handler is executed
@@ -2514,7 +2526,7 @@ public class JQueryElement<T> extends Node {
      *                value false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> one(String events, String selector, EventFunc2 handler);
+    public native JQueryElement one(String events, String selector, EventFunc2 handler);
 
     /**
      * Get the current coordinates of the first element in the set of matched elements,
@@ -2530,7 +2542,7 @@ public class JQueryElement<T> extends Node {
      *                    the new top and left coordinates for the elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> offset(Offset coordinates);
+    public native JQueryElement offset(Offset coordinates);
 
     /**
      * Set the current coordinates of every element in the set of matched elements,
@@ -2540,13 +2552,13 @@ public class JQueryElement<T> extends Node {
      *                 The function should return an object with the new top and left properties.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> offset(FuncRet2<Integer, Offset> function);
+    public native JQueryElement offset(FuncRet2<Integer, Offset> function);
 
     /**
      * Get the closest ancestor element that is positioned.
      * @return Closest jQuery parent element.
      */
-    public native JQueryElement<T> offsetParent();
+    public native JQueryElement offsetParent();
 
     /**
      * Get the current computed height for the first element in the set of matched elements, including
@@ -2570,14 +2582,14 @@ public class JQueryElement<T> extends Node {
      * @param value A number representing the number of pixels.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> outerHeight(int value);
+    public native JQueryElement outerHeight(int value);
 
     /**
      * Set the CSS outer Height of each element in the set of matched elements.
      * @param value A number along with an optional unit of measure appended (as a string).
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> outerHeight(String value);
+    public native JQueryElement outerHeight(String value);
 
     /**
      * Set the CSS outer Height of each element in the set of matched elements.
@@ -2586,7 +2598,7 @@ public class JQueryElement<T> extends Node {
      *                 function, this refers to the current element in the set.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> outerHeight(Func2<Integer, Integer> function);
+    public native JQueryElement outerHeight(Func2<Integer, Integer> function);
 
     /**
      * Get the current computed width for the first element in the set of matched elements, including
@@ -2610,14 +2622,14 @@ public class JQueryElement<T> extends Node {
      * @param value A number representing the number of pixels.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> outerWidth(int value);
+    public native JQueryElement outerWidth(int value);
 
     /**
      * Set the CSS outer Width of each element in the set of matched elements.
      * @param value A number along with an optional unit of measure appended (as a string).
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> outerWidth(String value);
+    public native JQueryElement outerWidth(String value);
 
     /**
      * Set the CSS outer Width of each element in the set of matched elements.
@@ -2626,14 +2638,14 @@ public class JQueryElement<T> extends Node {
      *                 function, this refers to the current element in the set.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> outerWidth(Func2<Integer, Integer> function);
+    public native JQueryElement outerWidth(Func2<Integer, Integer> function);
 
     /**
      * Get the parent of each element in the current set of matched elements, optionally
      * filtered by a selector.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> parent();
+    public native JQueryElement parent();
 
     /**
      * Get the parent of each element in the current set of matched elements, optionally
@@ -2641,14 +2653,14 @@ public class JQueryElement<T> extends Node {
      * @param selector A string containing a selector expression to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> parent(String selector);
+    public native JQueryElement parent(String selector);
 
     /**
      * Get the ancestors of each element in the current set of matched elements, optionally
      * filtered by a selector.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> parents();
+    public native JQueryElement parents();
 
     /**
      * Get the ancestors of each element in the current set of matched elements, optionally
@@ -2656,7 +2668,7 @@ public class JQueryElement<T> extends Node {
      * @param selector A string containing a selector expression to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> parents(String selector);
+    public native JQueryElement parents(String selector);
 
     /**
      * Get the ancestors of each element in the current set of matched elements, up to but not including
@@ -2665,7 +2677,7 @@ public class JQueryElement<T> extends Node {
      *                 stop matching ancestor elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> parentsUntil(String selector);
+    public native JQueryElement parentsUntil(String selector);
 
     /**
      * Get the ancestors of each element in the current set of matched elements, up to but not including
@@ -2675,7 +2687,7 @@ public class JQueryElement<T> extends Node {
      * @param filter A string containing a selector expression to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> parentsUntil(String selector, String filter);
+    public native JQueryElement parentsUntil(String selector, String filter);
 
     /**
      * Get the ancestors of each element in the current set of matched elements, up to but not including
@@ -2683,7 +2695,7 @@ public class JQueryElement<T> extends Node {
      * @param element A DOM node indicating where to stop matching ancestor elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> parentsUntil(Element element);
+    public native JQueryElement parentsUntil(Element element);
 
     /**
      * Get the ancestors of each element in the current set of matched elements, up to but not including
@@ -2692,7 +2704,7 @@ public class JQueryElement<T> extends Node {
      * @param filter A string containing a selector expression to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> parentsUntil(Element element, String filter);
+    public native JQueryElement parentsUntil(Element element, String filter);
 
     /**
      * Get the ancestors of each element in the current set of matched elements, up to but not including
@@ -2700,7 +2712,7 @@ public class JQueryElement<T> extends Node {
      * @param element A jQuery object indicating where to stop matching ancestor elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> parentsUntil(JQueryElement element);
+    public native JQueryElement parentsUntil(JQueryElement element);
 
     /**
      * Get the ancestors of each element in the current set of matched elements, up to but not including
@@ -2709,7 +2721,7 @@ public class JQueryElement<T> extends Node {
      * @param filter A string containing a selector expression to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> parentsUntil(JQueryElement element, String filter);
+    public native JQueryElement parentsUntil(JQueryElement element, String filter);
 
     /**
      * Get the current coordinates of the first element in the set of matched elements,
@@ -2723,7 +2735,7 @@ public class JQueryElement<T> extends Node {
      * optionally filtered by a selector.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> prev();
+    public native JQueryElement prev();
 
     /**
      * Get the immediately preceding sibling of each element in the set of matched elements,
@@ -2731,14 +2743,14 @@ public class JQueryElement<T> extends Node {
      * @param selector A string containing a selector expression to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> prev(String selector);
+    public native JQueryElement prev(String selector);
 
     /**
      * Get all preceding siblings of each element up to but not including the element matched
      * by the selector, DOM node, or jQuery object.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> prevAll();
+    public native JQueryElement prevAll();
 
     /**
      * Get all preceding siblings of each element up to but not including the element matched
@@ -2746,7 +2758,7 @@ public class JQueryElement<T> extends Node {
      * @param selector A string containing a selector expression to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> prevAll(String selector);
+    public native JQueryElement prevAll(String selector);
 
     /**
      * GGet all preceding siblings of each element up to but not including the element matched
@@ -2755,7 +2767,7 @@ public class JQueryElement<T> extends Node {
      *                 stop matching ancestor elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> prevUntil(String selector);
+    public native JQueryElement prevUntil(String selector);
 
     /**
      * Get all preceding siblings of each element up to but not including the element matched
@@ -2765,7 +2777,7 @@ public class JQueryElement<T> extends Node {
      * @param filter A string containing a selector expression to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> prevUntil(String selector, String filter);
+    public native JQueryElement prevUntil(String selector, String filter);
 
     /**
      * Get all preceding siblings of each element up to but not including the element matched
@@ -2773,7 +2785,7 @@ public class JQueryElement<T> extends Node {
      * @param element A DOM node indicating where to stop matching ancestor elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> prevUntil(Element element);
+    public native JQueryElement prevUntil(Element element);
 
     /**
      * Get all preceding siblings of each element up to but not including the element matched
@@ -2782,7 +2794,7 @@ public class JQueryElement<T> extends Node {
      * @param filter A string containing a selector expression to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> prevUntil(Element element, String filter);
+    public native JQueryElement prevUntil(Element element, String filter);
 
     /**
      * Get all preceding siblings of each element up to but not including the element matched
@@ -2790,7 +2802,7 @@ public class JQueryElement<T> extends Node {
      * @param element A jQuery object indicating where to stop matching ancestor elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> prevUntil(JQueryElement element);
+    public native JQueryElement prevUntil(JQueryElement element);
 
     /**
      * Get all preceding siblings of each element up to but not including the element matched
@@ -2799,7 +2811,7 @@ public class JQueryElement<T> extends Node {
      * @param filter A string containing a selector expression to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> prevUntil(JQueryElement element, String filter);
+    public native JQueryElement prevUntil(JQueryElement element, String filter);
 
     /**
      * Return a Promise object to observe when all actions of a certain type bound to the
@@ -2849,7 +2861,7 @@ public class JQueryElement<T> extends Node {
      * @param value A value to set for the property.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> prop(String propertyName, Object value);
+    public native JQueryElement prop(String propertyName, Object value);
 
     /**
      * Set one or more properties for the set of matched elements.
@@ -2859,21 +2871,21 @@ public class JQueryElement<T> extends Node {
      *                 the keyword this refers to the current element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> prop(String propertyName, FuncRet2<Integer, Object> function);
+    public native JQueryElement prop(String propertyName, FuncRet2<Integer, Object> function);
 
     /**
      * Set one or more properties for the set of matched elements.
      * @param properties An object of property-value pairs to set.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> prop(Object properties);
+    public native JQueryElement prop(Object properties);
 
     /**
      * Add a collection of DOM elements onto the jQuery stack.
      * @param elements An array of elements to push onto the stack and make into a new jQuery object.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> pushStack(Element... elements);
+    public native JQueryElement pushStack(Element... elements);
 
     /**
      * Add a collection of DOM elements onto the jQuery stack.
@@ -2882,7 +2894,7 @@ public class JQueryElement<T> extends Node {
      * @param arguments The arguments that were passed in to the jQuery method (for serialization).
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> pushStack(Element[] elements, String name, Object... arguments);
+    public native JQueryElement pushStack(Element[] elements, String name, Object... arguments);
 
     /**
      * Show the queue of functions to be executed on the matched elements.
@@ -2903,7 +2915,7 @@ public class JQueryElement<T> extends Node {
      * @param newQueue An array of functions to replace the current queue contents.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> queue(Object[] newQueue);
+    public native JQueryElement queue(Object[] newQueue);
 
     /**
      * Manipulate the queue of functions to be executed, once for each matched element.
@@ -2912,7 +2924,7 @@ public class JQueryElement<T> extends Node {
      * @param newQueue An array of functions to replace the current queue contents.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> queue(String queueName, Object... newQueue);
+    public native JQueryElement queue(String queueName, Object... newQueue);
 
     /**
      * Manipulate the queue of functions to be executed, once for each matched element.
@@ -2920,7 +2932,7 @@ public class JQueryElement<T> extends Node {
      *                 dequeue the next item.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> queue(Func1<Func> callback);
+    public native JQueryElement queue(Func1<Func> callback);
 
     /**
      * Manipulate the queue of functions to be executed, once for each matched element.
@@ -2930,27 +2942,27 @@ public class JQueryElement<T> extends Node {
      *                 dequeue the next item.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> queue(String queueName, Func1<Func> callback);
+    public native JQueryElement queue(String queueName, Func1<Func> callback);
 
     /**
      * Specify a function to execute when the DOM is fully loaded.
      * @param handler A function to execute after the DOM is ready.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> ready(Func handler);
+    public native JQueryElement ready(Func handler);
 
     /**
      * Remove the set of matched elements from the DOM.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> remove();
+    public native JQueryElement remove();
 
     /**
      * Remove the set of matched elements from the DOM.
      * @param selector A selector expression that filters the set of matched elements to be removed.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> remove(String selector);
+    public native JQueryElement remove(String selector);
 
     /**
      * Remove an attribute from each element in the set of matched elements.
@@ -2958,14 +2970,14 @@ public class JQueryElement<T> extends Node {
      *                      list of attributes.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> removeAttr(String attributeName);
+    public native JQueryElement removeAttr(String attributeName);
 
     /**
      * Remove a single class, multiple classes, or all classes from each element
      * in the set of matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> removeClass();
+    public native JQueryElement removeClass();
 
     /**
      * Remove a single class, multiple classes, or all classes from each element
@@ -2974,7 +2986,7 @@ public class JQueryElement<T> extends Node {
      *                  attribute of each matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> removeClass(String className);
+    public native JQueryElement removeClass(String className);
 
     /**
      * Remove a single class, multiple classes, or all classes from each element in the set
@@ -2984,55 +2996,55 @@ public class JQueryElement<T> extends Node {
      *                 as arguments. Must return a String.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> removeClass(FuncRet2<Integer, String> function);
+    public native JQueryElement removeClass(FuncRet2<Integer, String> function);
 
     /**
      * Remove a previously-stored piece of data.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> removeData();
+    public native JQueryElement removeData();
 
     /**
      * Remove a previously-stored piece of data.
      * @param name A string naming the piece of data to delete.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> removeData(String name);
+    public native JQueryElement removeData(String name);
 
     /**
      * Remove a previously-stored piece of data.
      * @param list An array or space-separated string naming the pieces of data to delete.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> removeData(String[] list);
+    public native JQueryElement removeData(String[] list);
 
     /**
      * Remove a property for the set of matched elements.
      * @param propertyName The name of the property to remove.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> removeProp(String propertyName);
+    public native JQueryElement removeProp(String propertyName);
 
     /**
      * Replace each target element with the set of matched elements.
      * @param target A selector string of elements indicating which element(s) to replace.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> replaceAll(String target);
+    public native JQueryElement replaceAll(String target);
 
     /**
      * Replace each target element with the set of matched elements.
      * @param target A jQuery object of elements indicating which element(s) to replace.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> replaceAll(JQueryElement target);
+    public native JQueryElement replaceAll(JQueryElement target);
 
     /**
      * Replace each target element with the set of matched elements.
      * @param target DOM element(s) indicating which element(s) to replace.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> replaceAll(Element... target);
+    public native JQueryElement replaceAll(Element... target);
 
     /**
      * Replace each element in the set of matched elements with the provided new content and
@@ -3040,7 +3052,7 @@ public class JQueryElement<T> extends Node {
      * @param newContent The content to insert an HTML string.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> replaceWith(String newContent);
+    public native JQueryElement replaceWith(String newContent);
 
     /**
      * Replace each element in the set of matched elements with the provided new content and
@@ -3048,7 +3060,7 @@ public class JQueryElement<T> extends Node {
      * @param newContent The content to insert, a jQuery object.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> replaceWith(JQueryElement newContent);
+    public native JQueryElement replaceWith(JQueryElement newContent);
 
     /**
      * Replace each element in the set of matched elements with the provided new content and
@@ -3056,7 +3068,7 @@ public class JQueryElement<T> extends Node {
      * @param newContent The content to insert, a DOM element(s).
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> replaceWith(Element... newContent);
+    public native JQueryElement replaceWith(Element... newContent);
 
     /**
      * Replace each element in the set of matched elements with the provided new content and
@@ -3064,29 +3076,21 @@ public class JQueryElement<T> extends Node {
      * @param function A function that returns content with which to replace the set of matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> replaceWith(Func function);
+    public native JQueryElement replaceWith(Func function);
 
     /**
      * Bind an event handler to the "resize" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> resize(EventFunc1 handler);
+    public native JQueryElement resize(EventFunc1 handler);
 
     /**
      * Bind an event handler to the "resize" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> resize(EventFunc2 handler);
-
-    /**
-     * Bind an event handler to the "resize" JavaScript event, or trigger that event on an element.
-     * @param eventData An object containing data that will be passed to the event handler.
-     * @param handler A function to execute each time the event is triggered.
-     * @return self {@link JQueryElement}
-     */
-    public native JQueryElement<T> resize(Object eventData, EventFunc handler);
+    public native JQueryElement resize(EventFunc2 handler);
 
     /**
      * Bind an event handler to the "resize" JavaScript event, or trigger that event on an element.
@@ -3094,7 +3098,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> resize(Object eventData, EventFunc1 handler);
+    public native JQueryElement resize(Object eventData, EventFunc handler);
 
     /**
      * Bind an event handler to the "resize" JavaScript event, or trigger that event on an element.
@@ -3102,27 +3106,35 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> resize(Object eventData, EventFunc2 handler);
+    public native JQueryElement resize(Object eventData, EventFunc1 handler);
+
+    /**
+     * Bind an event handler to the "resize" JavaScript event, or trigger that event on an element.
+     * @param eventData An object containing data that will be passed to the event handler.
+     * @param handler A function to execute each time the event is triggered.
+     * @return self {@link JQueryElement}
+     */
+    public native JQueryElement resize(Object eventData, EventFunc2 handler);
 
     /**
      * Bind an event handler to the "resize" JavaScript event, or trigger that event on an element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> resize();
+    public native JQueryElement resize();
 
     /**
      * Bind an event handler to the "scroll" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> scroll(EventFunc1 handler);
+    public native JQueryElement scroll(EventFunc1 handler);
 
     /**
      * Bind an event handler to the "scroll" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> scroll(EventFunc2 handler);
+    public native JQueryElement scroll(EventFunc2 handler);
 
     /**
      * Bind an event handler to the "scroll" JavaScript event, or trigger that event on an element.
@@ -3130,7 +3142,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> scroll(Object eventData, EventFunc handler);
+    public native JQueryElement scroll(Object eventData, EventFunc handler);
 
     /**
      * Bind an event handler to the "scroll" JavaScript event, or trigger that event on an element.
@@ -3138,7 +3150,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> scroll(Object eventData, EventFunc1 handler);
+    public native JQueryElement scroll(Object eventData, EventFunc1 handler);
 
     /**
      * Bind an event handler to the "scroll" JavaScript event, or trigger that event on an element.
@@ -3146,13 +3158,13 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> scroll(Object eventData, EventFunc2 handler);
+    public native JQueryElement scroll(Object eventData, EventFunc2 handler);
 
     /**
      * Bind an event handler to the "scroll" JavaScript event, or trigger that event on an element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> scroll();
+    public native JQueryElement scroll();
 
     /**
      * Get the current horizontal position of the scroll bar for the first element in the
@@ -3168,7 +3180,7 @@ public class JQueryElement<T> extends Node {
      * @param value An integer indicating the new position to set the scroll bar to.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> scrollLeft(int value);
+    public native JQueryElement scrollLeft(int value);
 
     /**
      * Get the current vertical position of the scroll bar for the first element in the set of
@@ -3184,21 +3196,21 @@ public class JQueryElement<T> extends Node {
      * @param value An integer indicating the new position to set the scroll bar to.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> scrollTop(int value);
+    public native JQueryElement scrollTop(int value);
 
     /**
      * Bind an event handler to the "select" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> select(EventFunc1 handler);
+    public native JQueryElement select(EventFunc1 handler);
 
     /**
      * Bind an event handler to the "select" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> select(EventFunc2 handler);
+    public native JQueryElement select(EventFunc2 handler);
 
     /**
      * Bind an event handler to the "select" JavaScript event, or trigger that event on an element.
@@ -3206,7 +3218,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> select(Object eventData, EventFunc handler);
+    public native JQueryElement select(Object eventData, EventFunc handler);
 
     /**
      * Bind an event handler to the "select" JavaScript event, or trigger that event on an element.
@@ -3214,7 +3226,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> select(Object eventData, EventFunc1 handler);
+    public native JQueryElement select(Object eventData, EventFunc1 handler);
 
     /**
      * Bind an event handler to the "select" JavaScript event, or trigger that event on an element.
@@ -3222,13 +3234,13 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> select(Object eventData, EventFunc2 handler);
+    public native JQueryElement select(Object eventData, EventFunc2 handler);
 
     /**
      * Bind an event handler to the "select" JavaScript event, or trigger that event on an element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> select();
+    public native JQueryElement select();
 
     /**
      * Encode a set of form elements as a string for submission.
@@ -3248,14 +3260,14 @@ public class JQueryElement<T> extends Node {
      * Display the matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> show();
+    public native JQueryElement show();
 
     /**
      * Display the matched elements.
      * @param duration A string or number determining how long the animation will run.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> show(double duration);
+    public native JQueryElement show(double duration);
 
     /**
      * Display the matched elements.
@@ -3263,7 +3275,7 @@ public class JQueryElement<T> extends Node {
      *                 matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> show(Func complete);
+    public native JQueryElement show(Func complete);
 
     /**
      * Display the matched elements.
@@ -3272,21 +3284,21 @@ public class JQueryElement<T> extends Node {
      *                 matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> show(double duration, Func complete);
+    public native JQueryElement show(double duration, Func complete);
 
     /**
      * Display the matched elements.
      * @param options A map of additional options to pass to the method.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> show(AnimateOptions options);
+    public native JQueryElement show(AnimateOptions options);
 
     /**
      * Get the siblings of each element in the set of matched elements, optionally
      * filtered by a selector.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> siblings();
+    public native JQueryElement siblings();
 
     /**
      * Get the siblings of each element in the set of matched elements, optionally
@@ -3294,7 +3306,7 @@ public class JQueryElement<T> extends Node {
      * @param selector A string containing a selector expression to match elements against.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> siblings(String selector);
+    public native JQueryElement siblings(String selector);
 
     /**
      * Return the number of elements in the jQuery object.
@@ -3308,7 +3320,7 @@ public class JQueryElement<T> extends Node {
      *              selected. If negative, it indicates an offset from the end of the set.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> slice(int start);
+    public native JQueryElement slice(int start);
 
     /**
      * Reduce the set of matched elements to a subset specified by a range of indices.
@@ -3319,20 +3331,20 @@ public class JQueryElement<T> extends Node {
      *            continues until the end of the set.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> slice(int start, int end);
+    public native JQueryElement slice(int start, int end);
 
     /**
      * Display the matched elements with a sliding motion.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> slideDown();
+    public native JQueryElement slideDown();
 
     /**
      * Display the matched elements with a sliding motion.
      * @param duration A string or number determining how long the animation will run.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> slideDown(double duration);
+    public native JQueryElement slideDown(double duration);
 
     /**
      * Display the matched elements with a sliding motion.
@@ -3340,7 +3352,7 @@ public class JQueryElement<T> extends Node {
      *                 matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> slideDown(Func complete);
+    public native JQueryElement slideDown(Func complete);
 
     /**
      * Display the matched elements with a sliding motion.
@@ -3349,27 +3361,27 @@ public class JQueryElement<T> extends Node {
      *                 matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> slideDown(double duration, Func complete);
+    public native JQueryElement slideDown(double duration, Func complete);
 
     /**
      * Display the matched elements with a sliding motion.
      * @param options A map of additional options to pass to the method.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> slideDown(AnimateOptions options);
+    public native JQueryElement slideDown(AnimateOptions options);
 
     /**
      * Display or hide the matched elements with a sliding motion.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> slideToggle();
+    public native JQueryElement slideToggle();
 
     /**
      * Display or hide the matched elements with a sliding motion.
      * @param duration A string or number determining how long the animation will run.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> slideToggle(double duration);
+    public native JQueryElement slideToggle(double duration);
 
     /**
      * Display or hide the matched elements with a sliding motion.
@@ -3377,7 +3389,7 @@ public class JQueryElement<T> extends Node {
      *                 matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> slideToggle(Func complete);
+    public native JQueryElement slideToggle(Func complete);
 
     /**
      * Display or hide the matched elements with a sliding motion.
@@ -3386,27 +3398,27 @@ public class JQueryElement<T> extends Node {
      *                 matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> slideToggle(double duration, Func complete);
+    public native JQueryElement slideToggle(double duration, Func complete);
 
     /**
      * Display or hide the matched elements with a sliding motion.
      * @param options A map of additional options to pass to the method.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> slideToggle(AnimateOptions options);
+    public native JQueryElement slideToggle(AnimateOptions options);
 
     /**
      * Hide the matched elements with a sliding motion.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> slideUp();
+    public native JQueryElement slideUp();
 
     /**
      * Hide the matched elements with a sliding motion.
      * @param duration A string or number determining how long the animation will run.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> slideUp(double duration);
+    public native JQueryElement slideUp(double duration);
 
     /**
      * Hide the matched elements with a sliding motion.
@@ -3414,7 +3426,7 @@ public class JQueryElement<T> extends Node {
      *                 matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> slideUp(Func complete);
+    public native JQueryElement slideUp(Func complete);
 
     /**
      * Hide the matched elements with a sliding motion.
@@ -3423,14 +3435,14 @@ public class JQueryElement<T> extends Node {
      *                 matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> slideUp(double duration, Func complete);
+    public native JQueryElement slideUp(double duration, Func complete);
 
     /**
      * Hide the matched elements with a sliding motion.
      * @param options A map of additional options to pass to the method.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> slideUp(AnimateOptions options);
+    public native JQueryElement slideUp(AnimateOptions options);
 
     /**
      * Stop the currently-running animation on the matched elements.
@@ -3438,7 +3450,7 @@ public class JQueryElement<T> extends Node {
      *                   Defaults to false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> stop(boolean clearQueue);
+    public native JQueryElement stop(boolean clearQueue);
 
     /**
      * Stop the currently-running animation on the matched elements.
@@ -3447,7 +3459,7 @@ public class JQueryElement<T> extends Node {
      *                   Defaults to false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> stop(String queue, boolean clearQueue);
+    public native JQueryElement stop(String queue, boolean clearQueue);
 
     /**
      * Stop the currently-running animation on the matched elements.
@@ -3457,7 +3469,7 @@ public class JQueryElement<T> extends Node {
      *                  immediately. Defaults to false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> stop(boolean clearQueue, boolean jumpToEnd);
+    public native JQueryElement stop(boolean clearQueue, boolean jumpToEnd);
 
     /**
      * Stop the currently-running animation on the matched elements.
@@ -3468,21 +3480,21 @@ public class JQueryElement<T> extends Node {
      *                  immediately. Defaults to false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> stop(String queue, boolean clearQueue, boolean jumpToEnd);
+    public native JQueryElement stop(String queue, boolean clearQueue, boolean jumpToEnd);
 
     /**
      * Bind an event handler to the "submit" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> submit(EventFunc1 handler);
+    public native JQueryElement submit(EventFunc1 handler);
 
     /**
      * Bind an event handler to the "submit" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> submit(EventFunc2 handler);
+    public native JQueryElement submit(EventFunc2 handler);
 
     /**
      * Bind an event handler to the "submit" JavaScript event, or trigger that event on an element.
@@ -3490,7 +3502,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> submit(Object eventData, EventFunc handler);
+    public native JQueryElement submit(Object eventData, EventFunc handler);
 
     /**
      * Bind an event handler to the "submit" JavaScript event, or trigger that event on an element.
@@ -3498,7 +3510,7 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> submit(Object eventData, EventFunc1 handler);
+    public native JQueryElement submit(Object eventData, EventFunc1 handler);
 
     /**
      * Bind an event handler to the "submit" JavaScript event, or trigger that event on an element.
@@ -3506,13 +3518,13 @@ public class JQueryElement<T> extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> submit(Object eventData, EventFunc2 handler);
+    public native JQueryElement submit(Object eventData, EventFunc2 handler);
 
     /**
      * Bind an event handler to the "submit" JavaScript event, or trigger that event on an element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> submit();
+    public native JQueryElement submit();
 
     /**
      * Get the combined text contents of each element in the set of matched elements,
@@ -3526,21 +3538,21 @@ public class JQueryElement<T> extends Node {
      * @param text The text to set as the content of each matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> text(String text);
+    public native JQueryElement text(String text);
 
     /**
      * Set the content of each element in the set of matched elements to the specified text.
      * @param value The text to set as the content of each matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> text(int value);
+    public native JQueryElement text(int value);
 
     /**
      * Set the content of each element in the set of matched elements to the specified text.
      * @param value The text to set as the content of each matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> text(boolean value);
+    public native JQueryElement text(boolean value);
 
     /**
      * Set the content of each element in the set of matched elements to the specified text.
@@ -3549,7 +3561,7 @@ public class JQueryElement<T> extends Node {
      *                  Must return a String value.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> text(FuncRet2<Integer, String> function);
+    public native JQueryElement text(FuncRet2<Integer, String> function);
 
     /**
      * Retrieve all the elements contained in the jQuery set, as an array.
@@ -3561,14 +3573,14 @@ public class JQueryElement<T> extends Node {
      * Display or hide the matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> toggle();
+    public native JQueryElement toggle();
 
     /**
      * Display or hide the matched elements.
      * @param duration A string or number determining how long the animation will run.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> toggle(double duration);
+    public native JQueryElement toggle(double duration);
 
     /**
      * Display or hide the matched elements.
@@ -3576,7 +3588,7 @@ public class JQueryElement<T> extends Node {
      * @param easing A string indicating which easing function to use for the transition.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> toggle(double duration, String easing);
+    public native JQueryElement toggle(double duration, String easing);
 
     /**
      * Display or hide the matched elements.
@@ -3585,21 +3597,21 @@ public class JQueryElement<T> extends Node {
      *                 per matched element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> toggle(double duration, Func complete);
+    public native JQueryElement toggle(double duration, Func complete);
 
     /**
      * Display or hide the matched elements.
      * @param options A map of additional options to pass to the method.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> toggle(AnimateOptions options);
+    public native JQueryElement toggle(AnimateOptions options);
 
     /**
      * Display or hide the matched elements.
      * @param display Use true to show the element or false to hide it.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> toggle(boolean display);
+    public native JQueryElement toggle(boolean display);
 
     /**
      * Add or remove one or more classes from each element in the set of matched elements,
@@ -3608,7 +3620,7 @@ public class JQueryElement<T> extends Node {
      *                  each element in the matched set.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> toggleClass(String className);
+    public native JQueryElement toggleClass(String className);
 
     /**
      * Add or remove one or more classes from each element in the set of matched elements,
@@ -3617,7 +3629,7 @@ public class JQueryElement<T> extends Node {
      *              should be added or removed.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> toggleClass(boolean state);
+    public native JQueryElement toggleClass(boolean state);
 
     /**
      * Add or remove one or more classes from each element in the set of matched elements,
@@ -3628,7 +3640,7 @@ public class JQueryElement<T> extends Node {
      *              should be added or removed.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> toggleClass(String className, boolean state);
+    public native JQueryElement toggleClass(String className, boolean state);
 
     /**
      * Add or remove one or more classes from each element in the set of matched elements,
@@ -3638,7 +3650,7 @@ public class JQueryElement<T> extends Node {
      *                 in the set, the old class value, and the state as arguments.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> toggleClass(FuncRet3<Integer, String, Boolean> function);
+    public native JQueryElement toggleClass(FuncRet3<Integer, String, Boolean> function);
 
     /**
      * Add or remove one or more classes from each element in the set of matched elements,
@@ -3650,7 +3662,7 @@ public class JQueryElement<T> extends Node {
      *              should be added or removed.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> toggleClass(FuncRet3<Integer, String, Boolean> function, boolean state);
+    public native JQueryElement toggleClass(FuncRet3<Integer, String, Boolean> function, boolean state);
 
     /**
      * Execute all handlers and behaviors attached to the matched elements for
@@ -3659,7 +3671,7 @@ public class JQueryElement<T> extends Node {
      * @param extraParameters Additional parameters to pass along to the event handler.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> trigger(Event event, Object... extraParameters);
+    public native JQueryElement trigger(Event event, Object... extraParameters);
 
     /**
      * Execute all handlers and behaviors attached to the matched elements for
@@ -3668,7 +3680,7 @@ public class JQueryElement<T> extends Node {
      * @param extraParameters Additional parameters to pass along to the event handler.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> trigger(String eventType, Object[] extraParameters);
+    public native JQueryElement trigger(String eventType, Object[] extraParameters);
 
     /**
      * Execute all handlers and behaviors attached to the matched elements for
@@ -3677,7 +3689,7 @@ public class JQueryElement<T> extends Node {
      * @param extraParameters Additional parameter to pass along to the event handler.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> trigger(String eventType, Object extraParameters);
+    public native JQueryElement trigger(String eventType, Object extraParameters);
 
     /**
      * Execute all handlers attached to an element for an event.
@@ -3699,30 +3711,21 @@ public class JQueryElement<T> extends Node {
      * Remove a previously-attached event handler from the elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> unbind();
+    public native JQueryElement unbind();
 
     /**
      * Remove a previously-attached event handler from the elements.
      * @param event A jQuery.Event object.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> unbind(Event event);
+    public native JQueryElement unbind(Event event);
 
     /**
      * Remove a previously-attached event handler from the elements.
      * @param eventType A string containing a JavaScript event type, such as click or submit.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> unbind(String eventType);
-
-    /**
-     * Remove a previously-attached event handler from the elements.
-     * @param eventType A string containing a JavaScript event type, such as click or submit.
-     * @param handler A handler function previously attached for the event(s), or the special
-     *                value false.
-     * @return self {@link JQueryElement}
-     */
-    public native JQueryElement<T> unbind(String eventType, EventFunc handler);
+    public native JQueryElement unbind(String eventType);
 
     /**
      * Remove a previously-attached event handler from the elements.
@@ -3731,7 +3734,7 @@ public class JQueryElement<T> extends Node {
      *                value false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> unbind(String eventType, EventFunc1 handler);
+    public native JQueryElement unbind(String eventType, EventFunc handler);
 
     /**
      * Remove a previously-attached event handler from the elements.
@@ -3740,7 +3743,16 @@ public class JQueryElement<T> extends Node {
      *                value false.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> unbind(String eventType, EventFunc2 handler);
+    public native JQueryElement unbind(String eventType, EventFunc1 handler);
+
+    /**
+     * Remove a previously-attached event handler from the elements.
+     * @param eventType A string containing a JavaScript event type, such as click or submit.
+     * @param handler A handler function previously attached for the event(s), or the special
+     *                value false.
+     * @return self {@link JQueryElement}
+     */
+    public native JQueryElement unbind(String eventType, EventFunc2 handler);
 
     /**
      * Remove a previously-attached event handler from the elements.
@@ -3749,7 +3761,7 @@ public class JQueryElement<T> extends Node {
      *               using .bind( eventType, false ).
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> unbind(String eventType, boolean falsed);
+    public native JQueryElement unbind(String eventType, boolean falsed);
 
     /**
      * Wrap an HTML structure around each element in the set of matched elements.
@@ -3758,14 +3770,14 @@ public class JQueryElement<T> extends Node {
      *                        element will be used.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> wrap(String wrappingElement);
+    public native JQueryElement wrap(String wrappingElement);
 
     /**
      * Wrap an HTML structure around each element in the set of matched elements.
      * @param wrappingElement An element specifying the structure to wrap around the matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> wrap(Element wrappingElement);
+    public native JQueryElement wrap(Element wrappingElement);
 
     /**
      * Wrap an HTML structure around each element in the set of matched elements.
@@ -3774,7 +3786,7 @@ public class JQueryElement<T> extends Node {
      *                        selector matching more than one element, the first element will be used.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> wrap(JQueryElement wrappingElement);
+    public native JQueryElement wrap(JQueryElement wrappingElement);
 
     /**
      * Wrap an HTML structure around each element in the set of matched elements.
@@ -3784,7 +3796,7 @@ public class JQueryElement<T> extends Node {
      *                 or jQuery element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> wrap(FuncRet1<Integer> function);
+    public native JQueryElement wrap(FuncRet1<Integer> function);
 
     /**
      * Wrap an HTML structure around all elements in the set of matched elements.
@@ -3793,14 +3805,14 @@ public class JQueryElement<T> extends Node {
      *                        element will be used.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> wrapAll(String wrappingElement);
+    public native JQueryElement wrapAll(String wrappingElement);
 
     /**
      * Wrap an HTML structure around all elements in the set of matched elements.
      * @param wrappingElement An element specifying the structure to wrap around the matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> wrapAll(Element wrappingElement);
+    public native JQueryElement wrapAll(Element wrappingElement);
 
     /**
      * Wrap an HTML structure around all elements in the set of matched elements.
@@ -3809,7 +3821,7 @@ public class JQueryElement<T> extends Node {
      *                        selector matching more than one element, the first element will be used.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> wrapAll(JQueryElement wrappingElement);
+    public native JQueryElement wrapAll(JQueryElement wrappingElement);
 
     /**
      * Wrap an HTML structure around all elements in the set of matched elements.
@@ -3819,7 +3831,7 @@ public class JQueryElement<T> extends Node {
      *                 or jQuery element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> wrapAll(FuncRet1<Integer> function);
+    public native JQueryElement wrapAll(FuncRet1<Integer> function);
 
     /**
      * Wrap an HTML structure around the content of each element in the set of matched elements.
@@ -3828,14 +3840,14 @@ public class JQueryElement<T> extends Node {
      *                        element will be used.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> wrapInner(String wrappingElement);
+    public native JQueryElement wrapInner(String wrappingElement);
 
     /**
      * Wrap an HTML structure around the content of each element in the set of matched elements.
      * @param wrappingElement An element specifying the structure to wrap around the matched elements.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> wrapInner(Element wrappingElement);
+    public native JQueryElement wrapInner(Element wrappingElement);
 
     /**
      * Wrap an HTML structure around the content of each element in the set of matched elements.
@@ -3844,7 +3856,7 @@ public class JQueryElement<T> extends Node {
      *                        selector matching more than one element, the first element will be used.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> wrapInner(JQueryElement wrappingElement);
+    public native JQueryElement wrapInner(JQueryElement wrappingElement);
 
     /**
      * Wrap an HTML structure around the content of each element in the set of matched elements.
@@ -3854,14 +3866,14 @@ public class JQueryElement<T> extends Node {
      *                 or jQuery element.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> wrapInner(FuncRet1<Integer> function);
+    public native JQueryElement wrapInner(FuncRet1<Integer> function);
 
     /**
      * Remove the parents of the set of matched elements from the DOM,
      * leaving the matched elements in their place.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> unwrap();
+    public native JQueryElement unwrap();
 
     /**
      * Get the current value of the first element in the set of matched elements.
@@ -3874,7 +3886,7 @@ public class JQueryElement<T> extends Node {
      *              to set as selected/checked.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> val(String value);
+    public native JQueryElement val(String value);
 
     /**
      * Set the value of each element in the set of matched elements.
@@ -3882,7 +3894,7 @@ public class JQueryElement<T> extends Node {
      *              as selected/checked.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> val(int value);
+    public native JQueryElement val(int value);
 
     /**
      * Set the value of each element in the set of matched elements.
@@ -3890,7 +3902,7 @@ public class JQueryElement<T> extends Node {
      *              to set as selected/checked.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> val(String[] value);
+    public native JQueryElement val(String[] value);
 
     /**
      * Get the current computed width for the first element in the set of matched elements.
@@ -3903,14 +3915,14 @@ public class JQueryElement<T> extends Node {
      * @param width An integer representing the number of pixels.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> width(int width);
+    public native JQueryElement width(int width);
 
     /**
      * Set the CSS width of each element in the set of matched elements.
      * @param width An integer along with an optional unit of measure appended (as a string).
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> width(String width);
+    public native JQueryElement width(String width);
 
     /**
      * Set the CSS width of each element in the set of matched elements.
@@ -3919,5 +3931,5 @@ public class JQueryElement<T> extends Node {
      *                 this refers to the current element in the set. Must return a String or Number
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement<T> width(FuncRet2<Integer, Integer> function);
+    public native JQueryElement width(FuncRet2<Integer, Integer> function);
 }

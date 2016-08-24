@@ -35,7 +35,6 @@ package gwt.material.design.jquery.client.api;
  * #L%
  */
 
-
 import com.google.gwt.core.client.ScriptInjector;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Node;
@@ -59,7 +58,7 @@ public class JQuery {
 
     @JsOverlay
     public static Element window() {
-        return ScriptInjector.TOP_WINDOW.<Element>cast();
+        return ScriptInjector.TOP_WINDOW.cast();
     }
 
     // Plain Object Query
@@ -167,25 +166,25 @@ public class JQuery {
 
     @JsOverlay
     @SuppressWarnings("unchecked")
-    public static <T extends UIObject> JQueryElement<T> $(T uiObject, Element context) {
+    public static <T extends UIObject> JQueryElement $(T uiObject, Element context) {
         return $(uiObject.getElement(), context);
     }
 
     @JsOverlay
     @SuppressWarnings("unchecked")
-    public static <T extends UIObject> JQueryElement<T> $(T uiObject, gwt.material.design.jscore.client.api.core.Element context) {
+    public static <T extends UIObject> JQueryElement $(T uiObject, gwt.material.design.jscore.client.api.core.Element context) {
         return $(uiObject.getElement(), context);
     }
 
     @JsOverlay
     @SuppressWarnings("unchecked")
-    public static <T extends UIObject> JQueryElement<T> $(T uiObject, JQueryElement context) {
+    public static <T extends UIObject> JQueryElement $(T uiObject, JQueryElement context) {
         return $(uiObject.getElement(), context);
     }
 
     @JsOverlay
     @SuppressWarnings("unchecked")
-    public static <T extends UIObject> JQueryElement<T> $(T uiObject, UIObject context) {
+    public static <T extends UIObject> JQueryElement $(T uiObject, UIObject context) {
         return $(uiObject.getElement(), context.getElement());
     }
 
