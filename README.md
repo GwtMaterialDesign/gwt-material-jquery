@@ -16,7 +16,14 @@ Current Version 1.0-rc1
     <version>1.0-rc1</version>
 </dependency>
 ```
-Will be out of the snapshot version soon.
+Snapshot Version 1.0-SNAPSHOT
+```xml
+<dependency>
+    <groupId>com.github.gwtmaterialdesign</groupId>
+    <artifactId>gwt-material-jquery</artifactId>
+    <version>1.0-SNAPSHOT</version>
+</dependency>
+```
 
 ## Usage
 Ensure you have JQuery loaded before this library is inherited.
