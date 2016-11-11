@@ -6,7 +6,7 @@
   <groupId>com.github.gwtmaterialdesign</groupId>
   <artifactId>gwt-material-jquery</artifactId>
   <packaging>jar</packaging>
-  <version>1.0-rc2</version>
+  <version>1.0-SNAPSHOT</version>
 
   <properties>
     <gwt.version>2.8.0</gwt.version>
@@ -39,7 +39,7 @@
     <connection>scm:git:git@github.com:GwtMaterialDesign/gwt-material-jquery.git</connection>
     <developerConnection>scm:git:git@github.com:GwtMaterialDesign/gwt-material-jquery.git</developerConnection>
     <url>http://github.com/GwtMaterialDesign/gwt-material-jquery</url>
-    <tag>v1.0-rc1</tag>
+    <tag>v1.0-SNAPSHOT</tag>
   </scm>
 
   <distributionManagement>
