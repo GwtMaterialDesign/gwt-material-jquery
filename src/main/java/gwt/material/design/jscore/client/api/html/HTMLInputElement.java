@@ -15,34 +15,17 @@
  */
 package gwt.material.design.jscore.client.api.html;
 
-import gwt.material.design.jscore.client.api.core.Element;
-import gwt.material.design.jscore.client.api.core.EventListener;
-import gwt.material.design.jscore.client.api.JsObject;
-import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 /**
- * Native HTMLElement 
+ * Native HTMLInputElement
  * 
- * @author Cristian Rinaldi
+ * @author Ben Dol
  */
 @JsType(isNative = true)
-public class HTMLInputElement extends Element {
-
-    @JsMethod
-    public static native void setAttribute(String align, String center);
-
-    @JsMethod
-    public static native void appendChild(HTMLInputElement element);
-
-    @JsMethod
-    public static native void addEventListener(String event, EventListener<? extends JsObject> handler);
+public class HTMLInputElement extends HTMLElement {
 
     @JsProperty
-    public static native void setInnerText(String text);
- 
-    @JsProperty
-    public static native String getInnerText();
-
+    public native double getValueAsNumber();
 }
