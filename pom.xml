@@ -108,6 +108,7 @@
         <configuration>
           <gen>${basedir}/gen</gen>
           <!--jsInteropMode>JS</jsInteropMode-->
+          <incremental>true</incremental>
           <generateJsInteropExports>true</generateJsInteropExports>
         </configuration>
         <executions>
