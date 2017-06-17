@@ -64,6 +64,9 @@ public class JQuery {
     // Plain Object Query
 
     @JsMethod(namespace = JsPackage.GLOBAL)
+    public static native JQueryElement $();
+
+    @JsMethod(namespace = JsPackage.GLOBAL)
     public static native JQueryElement $(Object plainObject);
 
     @JsMethod(namespace = JsPackage.GLOBAL)
@@ -189,6 +192,13 @@ public class JQuery {
     }
 
     // JQuery Global Functions
+
+    /**
+     * Get arbitrary data associated with the element.
+     * @return self {@link JQueryElement}
+     */
+    @JsMethod(namespace = "$")
+    public static native JQueryElement _data(JQueryElement element, String key);
 
     /**
      * Check to see if a DOM element is a descendant of another DOM element.
