@@ -710,6 +710,13 @@ public class JQueryElement extends Node {
     public native JQueryElement css(Object properties);
 
     /**
+     * Get the computed style properties for the first element in the set of matched elements.
+     * @param propertyName A CSS property.
+     * @return {@link String} property value.
+     */
+    public native String css(String propertyName);
+
+    /**
      * Store arbitrary data associated with the matched elements.
      * @param key A string naming the piece of data to set.
      * @param value The new data value; this can be any Javascript type except undefined.
