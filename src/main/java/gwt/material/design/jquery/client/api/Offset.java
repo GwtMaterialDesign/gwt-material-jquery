@@ -27,7 +27,7 @@ import jsinterop.annotations.JsType;
 /**
  * @author Ben Dol
  */
-@JsType
+@JsType(isNative = true)
 public class Offset {
 
     @JsProperty

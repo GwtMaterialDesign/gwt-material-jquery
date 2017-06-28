@@ -31,7 +31,7 @@ import jsinterop.annotations.JsType;
 /**
  * @author Ben Dol
  */
-@JsType
+@JsType(isNative = true)
 public class AnimateOptions {
 
     @JsProperty public native double getDuration();
