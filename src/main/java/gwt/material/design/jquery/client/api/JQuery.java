@@ -19,7 +19,7 @@ package gwt.material.design.jquery.client.api;
  * #%L
  * GwtMaterial
  * %%
- * Copyright (C) 2015 - 2016 GwtMaterialDesign
+ * Copyright (C) 2015 - 2017 GwtMaterialDesign
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,6 +62,9 @@ public class JQuery {
     }
 
     // Plain Object Query
+
+    @JsMethod(namespace = JsPackage.GLOBAL)
+    public static native JQueryElement $();
 
     @JsMethod(namespace = JsPackage.GLOBAL)
     public static native JQueryElement $(Object plainObject);
@@ -189,6 +192,13 @@ public class JQuery {
     }
 
     // JQuery Global Functions
+
+    /**
+     * Get arbitrary data associated with the element.
+     * @return self {@link JQueryElement}
+     */
+    @JsMethod(namespace = "$")
+    public static native JQueryElement _data(JQueryElement element, String key);
 
     /**
      * Check to see if a DOM element is a descendant of another DOM element.

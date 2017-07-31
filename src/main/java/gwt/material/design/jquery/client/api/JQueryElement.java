@@ -19,7 +19,7 @@ package gwt.material.design.jquery.client.api;
  * #%L
  * GwtMaterial
  * %%
- * Copyright (C) 2015 - 2016 GwtMaterialDesign
+ * Copyright (C) 2015 - 2017 GwtMaterialDesign
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -708,6 +708,13 @@ public class JQueryElement extends Node {
      * @return self {@link JQueryElement}
      */
     public native JQueryElement css(Object properties);
+
+    /**
+     * Get the computed style properties for the first element in the set of matched elements.
+     * @param propertyName A CSS property.
+     * @return {@link String} property value.
+     */
+    public native String css(String propertyName);
 
     /**
      * Store arbitrary data associated with the matched elements.
