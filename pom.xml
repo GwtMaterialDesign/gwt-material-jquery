@@ -106,7 +106,6 @@
         <version>${gwt.version}</version>
         <configuration>
           <gen>${basedir}/gen</gen>
-          <!--jsInteropMode>JS</jsInteropMode-->
           <incremental>false</incremental>
           <generateJsInteropExports>true</generateJsInteropExports>
         </configuration>
