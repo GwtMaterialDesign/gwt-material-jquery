@@ -6,7 +6,7 @@
   <groupId>com.github.gwtmaterialdesign</groupId>
   <artifactId>gwt-material-jquery</artifactId>
   <packaging>jar</packaging>
-  <version>2.0-SNAPSHOT</version>
+  <version>2.0-rc6</version>
 
   <properties>
     <gwt.version>2.8.1</gwt.version>
@@ -38,7 +38,7 @@
     <connection>scm:git:git@github.com:GwtMaterialDesign/gwt-material-jquery.git</connection>
     <developerConnection>scm:git:git@github.com:GwtMaterialDesign/gwt-material-jquery.git</developerConnection>
     <url>http://github.com/GwtMaterialDesign/gwt-material-jquery</url>
-    <tag>v2.0-SNAPSHOT</tag>
+    <tag>v2.0-rc6</tag>
   </scm>
 
   <distributionManagement>
@@ -106,7 +106,6 @@
         <version>${gwt.version}</version>
         <configuration>
           <gen>${basedir}/gen</gen>
-          <!--jsInteropMode>JS</jsInteropMode-->
           <incremental>false</incremental>
           <generateJsInteropExports>true</generateJsInteropExports>
         </configuration>
