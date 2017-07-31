@@ -8,12 +8,12 @@ JQuery interface maintained by GWT Material Design.
 Documentation on the JQuery can be found here: https://api.jquery.com/
 
 ## Maven
-Current Version 2.0-rc5
+Current Version 2.0-rc6
 ```xml
 <dependency>
     <groupId>com.github.gwtmaterialdesign</groupId>
     <artifactId>gwt-material-jquery</artifactId>
-    <version>2.0-rc5</version>
+    <version>2.0-rc6</version>
 </dependency>
 ```
 Snapshot Version 2.0-SNAPSHOT
