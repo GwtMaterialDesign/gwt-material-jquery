@@ -1,15 +1,15 @@
 <img src="http://i.imgur.com/5GxyXx6.png" />
-#GWT Material JQuery
+## GWT Material JQuery
 
 [![Build Status](https://travis-ci.org/GwtMaterialDesign/gwt-material-jquery.svg?branch=master)](https://travis-ci.org/GwtMaterialDesign/gwt-material-jquery)
 
 JQuery interface maintained by GWT Material Design.
 
-##Documentation
+## Documentation
 
 Documentation on the JQuery can be found here: https://api.jquery.com/
 
-##Maven
+## Maven
 Current Version 2.0-rc6
 ```xml
 <dependency>
@@ -27,7 +27,7 @@ Snapshot Version 2.0-SNAPSHOT
 </dependency>
 ```
 
-##Usage
+## Usage
 Ensure you have JQuery loaded before this library is inherited.
 This is handled by GMD if you yare using `GwtMaterialWithJQuery` GMD module.
 
