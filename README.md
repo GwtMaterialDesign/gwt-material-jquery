@@ -1,5 +1,8 @@
 <img src="http://i.imgur.com/5GxyXx6.png" />
-# GWT Material JQuery [![Build Status](https://travis-ci.org/GwtMaterialDesign/gwt-material-jquery.svg?branch=master)](https://travis-ci.org/GwtMaterialDesign/gwt-material-jquery)
+
+## GWT Material JQuery
+
+[![Build Status](https://travis-ci.org/GwtMaterialDesign/gwt-material-jquery.svg?branch=master)](https://travis-ci.org/GwtMaterialDesign/gwt-material-jquery)
 
 JQuery interface maintained by GWT Material Design.
 
@@ -8,12 +11,12 @@ JQuery interface maintained by GWT Material Design.
 Documentation on the JQuery can be found here: https://api.jquery.com/
 
 ## Maven
-Current Version 2.0-rc5
+Current Version 2.0-rc6
 ```xml
 <dependency>
     <groupId>com.github.gwtmaterialdesign</groupId>
     <artifactId>gwt-material-jquery</artifactId>
-    <version>2.0-rc5</version>
+    <version>2.0-rc6</version>
 </dependency>
 ```
 Snapshot Version 2.0-SNAPSHOT
