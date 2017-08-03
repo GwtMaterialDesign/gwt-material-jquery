@@ -24,7 +24,7 @@ import jsinterop.annotations.JsType;
 public class Constraints {
 
     @JsProperty
-    public boolean video;
+    public MediaTrackConstraints video;
 
     @JsProperty
     public boolean audio;
