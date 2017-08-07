@@ -1,4 +1,4 @@
-package gwt.material.design.jscore.client.api;
+package gwt.material.design.jscore.client.api.media;
 
 /*
  * Copyright 2016 Google Inc.
@@ -16,40 +16,17 @@ package gwt.material.design.jscore.client.api;
  * the License.
  */
 
+import gwt.material.design.jscore.client.api.promise.Promise;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsPackage;
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
-public class MediaStream {
-
-    @JsProperty
-    public boolean active;
-
-    @JsProperty
-    public boolean ended;
-
-    @JsProperty
-    public String id;
+public class MediaDevices {
 
     @JsMethod
-    public native void addTrack(MediaStreamTrack track);
+    public native Promise getUserMedia();
 
     @JsMethod
-    public native MediaStream clone();
-
-    @JsMethod
-    public native MediaStreamTrack getAudioTracks();
-
-    @JsMethod
-    public native MediaStreamTrack[] getTracks();
-
-    @JsMethod
-    public native MediaStreamTrack getVideoTracks();
-
-    @JsMethod
-    public native void removeTrack(MediaStreamTrack track);
-
-
+    public native Promise getUserMedia(Constraints constraints);
 }

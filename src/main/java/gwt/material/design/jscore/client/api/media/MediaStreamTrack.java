@@ -1,4 +1,4 @@
-package gwt.material.design.jscore.client.api;
+package gwt.material.design.jscore.client.api.media;
 
 /*
  * Copyright 2016 Google Inc.
@@ -16,6 +16,7 @@ package gwt.material.design.jscore.client.api;
  * the License.
  */
 
+import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
@@ -42,4 +43,7 @@ public class MediaStreamTrack {
 
     @JsProperty
     public boolean remote;
+
+    @JsMethod
+    public native void stop();
 }
