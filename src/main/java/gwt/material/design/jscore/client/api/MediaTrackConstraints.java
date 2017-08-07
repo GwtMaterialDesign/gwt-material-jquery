@@ -14,6 +14,9 @@ public class MediaTrackConstraints {
     public long height;
 
     @JsProperty
+    public String facingMode;
+
+    @JsProperty
     public double aspectRatio;
 
     @JsProperty
