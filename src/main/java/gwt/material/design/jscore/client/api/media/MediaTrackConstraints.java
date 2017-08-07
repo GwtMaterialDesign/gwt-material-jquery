@@ -1,4 +1,4 @@
-package gwt.material.design.jscore.client.api;
+package gwt.material.design.jscore.client.api.media;
 
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;

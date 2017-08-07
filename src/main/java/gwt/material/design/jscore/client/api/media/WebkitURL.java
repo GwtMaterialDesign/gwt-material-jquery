@@ -1,4 +1,4 @@
-package gwt.material.design.jscore.client.api;
+package gwt.material.design.jscore.client.api.media;
 
 /*
  * Copyright 2016 Google Inc.
@@ -17,15 +17,18 @@ package gwt.material.design.jscore.client.api;
  */
 
 import jsinterop.annotations.JsPackage;
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
-@JsType(isNative = true, name = "Object", namespace = JsPackage.GLOBAL)
-public class Constraints {
+@JsType(isNative = true, namespace = JsPackage.GLOBAL)
+public class WebkitURL {
 
-    @JsProperty
-    public MediaTrackConstraints video;
+    public static native String createObjectURL(MediaStream var0);
 
-    @JsProperty
-    public boolean audio;
+    public static native Object revokeObjectURL(String var0);
+
+    public WebkitURL(String urlString, String base) {
+    }
+
+    public WebkitURL(String urlString) {
+    }
 }

@@ -17,11 +17,12 @@ package gwt.material.design.jscore.client.api;
  */
 
 import gwt.material.design.jquery.client.api.Functions;
-import gwt.material.design.jscore.client.api.serviceworker.ServiceWorker;
+import gwt.material.design.jscore.client.api.media.Constraints;
+import gwt.material.design.jscore.client.api.media.MediaDevices;
+import gwt.material.design.jscore.client.api.media.MediaStream;
 import gwt.material.design.jscore.client.api.serviceworker.ServiceWorkerContainer;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsPackage;
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "navigator")
