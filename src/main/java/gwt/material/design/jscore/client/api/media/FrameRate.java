@@ -5,20 +5,11 @@ import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 @JsType(isNative = true, name = "Object", namespace = JsPackage.GLOBAL)
-public class MediaTrackConstraints {
+public class FrameRate {
 
     @JsProperty
-    public long width;
+    public double ideal;
 
     @JsProperty
-    public long height;
-
-    @JsProperty
-    public String facingMode;
-
-    @JsProperty
-    public FrameRate frameRate;
-
-    @JsProperty
-    public double aspectRatio;
+    public double max;
 }
