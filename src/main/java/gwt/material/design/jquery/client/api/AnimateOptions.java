@@ -21,10 +21,10 @@ package gwt.material.design.jquery.client.api;
  */
 
 
-import gwt.material.design.jscore.client.api.Functions.Func;
-import gwt.material.design.jscore.client.api.Functions.Func1;
-import gwt.material.design.jscore.client.api.Functions.Func2;
-import gwt.material.design.jscore.client.api.Functions.Func3;
+import gwt.material.design.jquery.client.api.Functions.Func;
+import gwt.material.design.jquery.client.api.Functions.Func1;
+import gwt.material.design.jquery.client.api.Functions.Func2;
+import gwt.material.design.jquery.client.api.Functions.Func3;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 

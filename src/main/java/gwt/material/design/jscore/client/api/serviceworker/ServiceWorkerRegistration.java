@@ -20,7 +20,7 @@
 package gwt.material.design.jscore.client.api.serviceworker;
 
 
-import gwt.material.design.jscore.client.api.Functions;
+import gwt.material.design.jquery.client.api.Functions;
 import gwt.material.design.jscore.client.api.promise.Promise;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsPackage;

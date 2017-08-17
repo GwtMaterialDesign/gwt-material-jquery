@@ -21,7 +21,6 @@ package gwt.material.design.jquery.client.api;
  */
 
 
-import gwt.material.design.jscore.client.api.KeyEvent;
 import gwt.material.design.jscore.client.api.core.Element;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;

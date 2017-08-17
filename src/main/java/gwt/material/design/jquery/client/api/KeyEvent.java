@@ -1,4 +1,4 @@
-package gwt.material.design.jscore.client.api;
+package gwt.material.design.jquery.client.api;
 
 /*
  * #%L

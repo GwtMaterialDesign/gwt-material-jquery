@@ -1,4 +1,4 @@
-package gwt.material.design.jscore.client.api;
+package gwt.material.design.jquery.client.api;
 
 /*
  * #%L
@@ -26,46 +26,49 @@ import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 /**
- * MouseEvent for JQuery.
+ * Event for JQuery.
  * 
- * @author Ben Dol
+ * @author Cristian Rinaldi
  */
-@JsType(isNative=true)
-public class MouseEvent extends KeyEvent {
+@JsType(name = "jQuery", isNative=true)
+public class Event {
 
     @JsProperty
-    public native int getPageX();
+    public native Object getData();
 
     @JsProperty
-    public native int getPageY();
+    public native Element getCurrentTarget();
 
     @JsProperty
-    public native int getClientX();
+    public native Element getDelegateTarget();
 
     @JsProperty
-    public native int getClientY();
+    public native Object getResult();
 
     @JsProperty
-    public native int getOffsetX();
+    public native String getType();
 
     @JsProperty
-    public native int getOffsetY();
+    public native String getMetaKey();
 
     @JsProperty
-    public native int getScreenX();
+    public native int getTimeStamp();
 
     @JsProperty
-    public native int getScreenY();
+    public native JQueryElement getRelatedTarget();
 
     @JsProperty
-    public native Element getTarget();
+    public native String getNamespace();
 
-    @JsProperty
-    public native Element getToElement();
+    public native void stopPropagation();
 
-    @JsProperty
-    public native int getButton();
+    public native void stopImmediatePropagation();
 
-    @JsProperty
-    public native int getButtons();
+    public native void preventDefault();
+
+    public native Boolean isPropagationStopped();
+
+    public native Boolean isDefaultPrevented();
+
+    public native Boolean isImmediatePropagationStopped();
 }
