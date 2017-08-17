@@ -16,7 +16,6 @@ package gwt.material.design.jscore.client.api;
  * the License.
  */
 
-import gwt.material.design.jquery.client.api.Functions;
 import gwt.material.design.jscore.client.api.media.Constraints;
 import gwt.material.design.jscore.client.api.media.MediaDevices;
 import gwt.material.design.jscore.client.api.media.MediaStream;

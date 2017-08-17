@@ -36,7 +36,8 @@ package gwt.material.design.jquery.client.api;
  */
 
 
-import gwt.material.design.jquery.client.api.Functions.FuncRet2;
+import gwt.material.design.jscore.client.api.Event;
+import gwt.material.design.jscore.client.api.Functions.FuncRet2;
 import jsinterop.annotations.JsType;
 
 /**
