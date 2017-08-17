@@ -37,6 +37,7 @@ package gwt.material.design.jquery.client.api;
 
 
 import com.google.gwt.dom.client.Element;
+import elemental2.dom.Node;
 import gwt.material.design.jquery.client.api.Functions.EventFunc;
 import gwt.material.design.jquery.client.api.Functions.EventFunc1;
 import gwt.material.design.jquery.client.api.Functions.EventFunc2;
@@ -50,7 +51,6 @@ import gwt.material.design.jquery.client.api.Functions.FuncRet2;
 import gwt.material.design.jquery.client.api.Functions.FuncRet3;
 import gwt.material.design.jquery.client.api.Functions.KeyEventFunc;
 import gwt.material.design.jquery.client.api.Functions.MouseEventFunc;
-import gwt.material.design.jscore.client.api.core.Node;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
