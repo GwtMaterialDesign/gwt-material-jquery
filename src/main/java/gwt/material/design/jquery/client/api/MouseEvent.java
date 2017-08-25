@@ -20,8 +20,9 @@ package gwt.material.design.jquery.client.api;
  * #L%
  */
 
-
 import gwt.material.design.jscore.client.api.core.Element;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
@@ -30,42 +31,106 @@ import jsinterop.annotations.JsType;
  * 
  * @author Ben Dol
  */
-@JsType(isNative=true)
+@JsType(namespace = "jQuery", name = "Event", isNative=true)
 public class MouseEvent extends KeyEvent {
 
-    @JsProperty
-    public native int getPageX();
+    public MouseEvent(String type) {
+        super(type);
+    }
 
     @JsProperty
-    public native int getPageY();
+    public int pageX;
+
+    @JsOverlay
+    public final int getPageX() {
+        return pageX;
+    }
 
     @JsProperty
-    public native int getClientX();
+    public int pageY;
+
+    @JsOverlay
+    public final int getPageY() {
+        return pageY;
+    }
 
     @JsProperty
-    public native int getClientY();
+    public int clientX;
+
+    @JsOverlay
+    public final int getClientX() {
+        return clientX;
+    }
 
     @JsProperty
-    public native int getOffsetX();
+    public int clientY;
+
+    @JsOverlay
+    public final int getClientY() {
+        return clientY;
+    }
 
     @JsProperty
-    public native int getOffsetY();
+    public int offsetX;
+
+    @JsOverlay
+    public final int getOffsetX() {
+        return offsetX;
+    }
 
     @JsProperty
-    public native int getScreenX();
+    public int offsetY;
+
+    @JsOverlay
+    public final int getOffsetY() {
+        return offsetY;
+    }
 
     @JsProperty
-    public native int getScreenY();
+    public int screenX;
+
+    @JsOverlay
+    public final int getScreenX() {
+        return screenX;
+    }
 
     @JsProperty
-    public native Element getTarget();
+    public int screenY;
+
+    @JsOverlay
+    public final int getScreenY() {
+        return screenY;
+    }
 
     @JsProperty
-    public native Element getToElement();
+    public Element target;
+
+    @JsOverlay
+    public final Element getTarget() {
+        return target;
+    }
 
     @JsProperty
-    public native int getButton();
+    public Element toElement;
+
+    @JsOverlay
+    public final Element getToElement() {
+        return toElement;
+    }
 
     @JsProperty
-    public native int getButtons();
+    public int button;
+
+    @JsOverlay
+    public final int getButton() {
+        return button;
+    }
+
+    @JsProperty
+    public int buttons;
+
+    @JsOverlay
+    public final int getButtons() {
+        return buttons;
+    }
 }

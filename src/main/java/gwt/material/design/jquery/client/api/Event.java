@@ -22,6 +22,8 @@ package gwt.material.design.jquery.client.api;
 
 
 import gwt.material.design.jscore.client.api.core.Element;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
@@ -30,35 +32,83 @@ import jsinterop.annotations.JsType;
  * 
  * @author Cristian Rinaldi
  */
-@JsType(name = "jQuery", isNative=true)
+@JsType(namespace = "jQuery", name = "Event", isNative=true)
 public class Event {
 
-    @JsProperty
-    public native Object getData();
+    @JsConstructor
+    public Event(String type) {}
 
     @JsProperty
-    public native Element getCurrentTarget();
+    public String type;
+
+    @JsOverlay
+    public final String getType() {
+        return type;
+    }
 
     @JsProperty
-    public native Element getDelegateTarget();
+    public Object data;
+
+    @JsOverlay
+    public final Object getData() {
+        return data;
+    }
 
     @JsProperty
-    public native Object getResult();
+    public Element currentTarget;
+
+    @JsOverlay
+    public final Element getCurrentTarget() {
+        return currentTarget;
+    }
 
     @JsProperty
-    public native String getType();
+    public Element delegateTarget;
+
+    @JsOverlay
+    public final Element getDelegateTarget() {
+        return delegateTarget;
+    }
 
     @JsProperty
-    public native String getMetaKey();
+    public Object result;
+
+    @JsOverlay
+    public final Object getResult() {
+        return result;
+    }
 
     @JsProperty
-    public native int getTimeStamp();
+    public String metaKey;
+
+    @JsOverlay
+    public final String getMetaKey() {
+        return metaKey;
+    }
 
     @JsProperty
-    public native JQueryElement getRelatedTarget();
+    public int timeStamp;
+
+    @JsOverlay
+    public final int getTimeStamp() {
+        return timeStamp;
+    }
 
     @JsProperty
-    public native String getNamespace();
+    public JQueryElement relatedTarget;
+
+    @JsOverlay
+    public final JQueryElement getRelatedTarget() {
+        return relatedTarget;
+    }
+
+    @JsProperty
+    public String namespace;
+
+    @JsOverlay
+    public final String getNamespace() {
+        return namespace;
+    }
 
     public native void stopPropagation();
 
@@ -66,9 +116,9 @@ public class Event {
 
     public native void preventDefault();
 
-    public native Boolean isPropagationStopped();
+    public Boolean propagationStopped;
 
-    public native Boolean isDefaultPrevented();
+    public Boolean defaultPrevented;
 
-    public native Boolean isImmediatePropagationStopped();
+    public Boolean immediatePropagationStopped;
 }
