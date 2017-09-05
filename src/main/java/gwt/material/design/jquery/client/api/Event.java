@@ -20,8 +20,7 @@ package gwt.material.design.jquery.client.api;
  * #L%
  */
 
-
-import gwt.material.design.jscore.client.api.core.Element;
+import com.google.gwt.dom.client.Element;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsProperty;
