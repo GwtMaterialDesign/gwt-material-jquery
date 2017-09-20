@@ -36,7 +36,6 @@ import jsinterop.annotations.JsType;
  * @see <a href="http://gwtmaterialdesign.github.io/gwt-material-demo/#serviceworker">GMD Service Worker</a>
  */
 //@formatter:on
-//TODO Need to transfer this at GMD JQuery
 @JsType(isNative = true, name = "controller")
 public class ServiceWorker {
 
