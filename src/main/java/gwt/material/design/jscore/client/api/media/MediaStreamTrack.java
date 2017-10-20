@@ -1,4 +1,4 @@
-package gwt.material.design.jscore.client.api;
+package gwt.material.design.jscore.client.api.media;
 
 /*
  * Copyright 2016 Google Inc.
@@ -16,19 +16,34 @@ package gwt.material.design.jscore.client.api;
  * the License.
  */
 
-import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
-@JsType(isNative = true, namespace = JsPackage.GLOBAL)
-public class WebkitURL {
+@JsType(isNative = true)
+public class MediaStreamTrack {
 
-    public static native String createObjectURL(MediaStream var0);
+    @JsProperty
+    public boolean enabled;
 
-    public static native Object revokeObjectURL(String var0);
+    @JsProperty
+    public String id;
 
-    public WebkitURL(String urlString, String base) {
-    }
+    @JsProperty
+    public String kind;
 
-    public WebkitURL(String urlString) {
-    }
+    @JsProperty
+    public String label;
+
+    @JsProperty
+    public boolean muted;
+
+    @JsProperty
+    public boolean readOnly;
+
+    @JsProperty
+    public boolean remote;
+
+    @JsMethod
+    public native void stop();
 }

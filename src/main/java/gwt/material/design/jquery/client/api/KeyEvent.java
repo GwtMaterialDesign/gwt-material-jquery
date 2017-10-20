@@ -20,7 +20,8 @@ package gwt.material.design.jquery.client.api;
  * #L%
  */
 
-
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
@@ -29,30 +30,74 @@ import jsinterop.annotations.JsType;
  * 
  * @author Ben Dol
  */
-@JsType(isNative=true)
+@JsType(namespace = "jQuery", name = "Event", isNative=true)
 public class KeyEvent extends Event {
 
-    @JsProperty
-    public native int getWhich();
+    public KeyEvent(String type) {
+        super(type);
+    }
 
     @JsProperty
-    public native int getKeyCode();
+    public int which;
+
+    @JsOverlay
+    public final int getWhich() {
+        return which;
+    }
 
     @JsProperty
-    public native String getCharCode();
+    public int keyCode;
+
+    @JsOverlay
+    public final int getKeyCode() {
+        return keyCode;
+    }
 
     @JsProperty
-    public native boolean isShiftKey();
+    public String charCode;
+
+    @JsOverlay
+    public final String getCharCode() {
+        return charCode;
+    }
 
     @JsProperty
-    public native boolean isCtrlKey();
+    public boolean shiftKey;
+
+    @JsOverlay
+    public final boolean isShiftKey() {
+        return shiftKey;
+    }
 
     @JsProperty
-    public native boolean isAltKey();
+    public boolean ctrlKey;
+
+    @JsOverlay
+    public final boolean isCtrlKey() {
+        return ctrlKey;
+    }
 
     @JsProperty
-    public native boolean isCancelable();
+    public boolean altKey;
+
+    @JsOverlay
+    public final boolean isAltKey() {
+        return altKey;
+    }
 
     @JsProperty
-    public native boolean isBubbles();
+    public boolean cancelable;
+
+    @JsOverlay
+    public final boolean isCancelable() {
+        return cancelable;
+    }
+
+    @JsProperty
+    public boolean bubbles;
+
+    @JsOverlay
+    public final boolean isBubbles() {
+        return bubbles;
+    }
 }

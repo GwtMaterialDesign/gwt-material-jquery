@@ -1,4 +1,4 @@
-package gwt.material.design.jscore.client.api;
+package gwt.material.design.jscore.client.api.media;
 
 /*
  * Copyright 2016 Google Inc.
@@ -16,17 +16,35 @@ package gwt.material.design.jscore.client.api;
  * the License.
  */
 
-import com.google.gwt.core.client.JavaScriptObject;
-import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
-public class MediaDevices {
+public class URL {
 
-    @JsMethod
-    public native MediaStream getUserMedia();
+    public String hash;
+    public String host;
+    public String hostname;
+    public String href;
+    public String origin;
+    public String password;
+    public String pathname;
+    public String port;
+    public String protocol;
+    public String search;
+    public String username;
 
-    @JsMethod
-    public native MediaStream getUserMedia(JavaScriptObject constraints);
+    public static native String createObjectURL(MediaStream var0);
+
+    public static native String domainToASCII(String var0);
+
+    public static native String domainToUnicode(String var0);
+
+    public static native Object revokeObjectURL(String var0);
+
+    public URL(String url, String base) {
+    }
+
+    public URL(String url) {
+    }
 }

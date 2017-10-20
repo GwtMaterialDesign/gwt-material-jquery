@@ -1,4 +1,4 @@
-package gwt.material.design.jscore.client.api;
+package gwt.material.design.jscore.client.api.media;
 
 /*
  * Copyright 2016 Google Inc.
@@ -16,30 +16,17 @@ package gwt.material.design.jscore.client.api;
  * the License.
  */
 
-import jsinterop.annotations.JsProperty;
+import gwt.material.design.jscore.client.api.promise.Promise;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
-@JsType(isNative = true)
-public class MediaStreamTrack {
+@JsType(isNative = true, namespace = JsPackage.GLOBAL)
+public class MediaDevices {
 
-    @JsProperty
-    public boolean enabled;
+    @JsMethod
+    public native Promise getUserMedia();
 
-    @JsProperty
-    public String id;
-
-    @JsProperty
-    public String kind;
-
-    @JsProperty
-    public String label;
-
-    @JsProperty
-    public boolean muted;
-
-    @JsProperty
-    public boolean readOnly;
-
-    @JsProperty
-    public boolean remote;
+    @JsMethod
+    public native Promise getUserMedia(Constraints constraints);
 }

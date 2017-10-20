@@ -20,52 +20,17 @@ package gwt.material.design.jquery.client.api;
  * #L%
  */
 
-
-import gwt.material.design.jscore.client.api.core.Element;
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 /**
- * MouseEvent for JQuery.
+ * OrientationEvent for JQuery.
  * 
  * @author Ben Dol
  */
-@JsType(isNative=true)
-public class OrientationEvent extends KeyEvent {
+@JsType(namespace = "jQuery", name = "Event", isNative=true)
+public class OrientationEvent extends MouseEvent {
 
-    @JsProperty
-    public native int getPageX();
-
-    @JsProperty
-    public native int getPageY();
-
-    @JsProperty
-    public native int getClientX();
-
-    @JsProperty
-    public native int getClientY();
-
-    @JsProperty
-    public native int getOffsetX();
-
-    @JsProperty
-    public native int getOffsetY();
-
-    @JsProperty
-    public native int getScreenX();
-
-    @JsProperty
-    public native int getScreenY();
-
-    @JsProperty
-    public native Element getTarget();
-
-    @JsProperty
-    public native Element getToElement();
-
-    @JsProperty
-    public native int getButton();
-
-    @JsProperty
-    public native int getButtons();
+    public OrientationEvent(String type) {
+        super(type);
+    }
 }
