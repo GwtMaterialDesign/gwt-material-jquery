@@ -12,7 +12,6 @@ import jsinterop.annotations.JsType;
 /**
  *
  * @author Cristian Rinaldi <crinaldi@santafe.gov.ar>
- * @param <T>
  */
 @JsType(isNative = true)
 public class IDBOpenDBRequest extends IDBRequest<IDBDatabase>{
