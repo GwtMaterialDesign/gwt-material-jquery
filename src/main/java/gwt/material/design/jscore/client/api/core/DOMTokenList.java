@@ -23,7 +23,6 @@ public class DOMTokenList {
      *
      * DOMTokenList.length Read only Is an integer representing the number of
      * objects stored in the object.
-     * @return 
      */
     @JsProperty
     public native int getLenth();
@@ -34,7 +33,6 @@ public class DOMTokenList {
      * returned null)
      *
      * @param index
-     * @return
      */
     public native String item(int index);
 
@@ -42,7 +40,6 @@ public class DOMTokenList {
      * Returns true if the underlying string contains token, otherwise false
      *
      * @param obj
-     * @return
      */
     public native Boolean contains(String obj);
 
@@ -65,7 +62,6 @@ public class DOMTokenList {
      * added and the function returns true
      *
      * @param obj
-     * @return
      */
     public native Boolean toggle(String obj);
 
