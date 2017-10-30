@@ -21,6 +21,7 @@ package gwt.material.design.jscore.client.api.serviceworker;
 
 
 import gwt.material.design.jquery.client.api.Functions;
+import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
@@ -54,11 +55,13 @@ public class ServiceWorker {
     @JsProperty
     public String state;
 
-
     /**
      * An EventListener property called whenever an event of type statechange is fired;
      * it is basically fired anytime the {@link ServiceWorker#state} changes.
      */
     @JsProperty
     public Functions.EventFunc onstatechange;
+
+    @JsMethod
+    public native void postMessage(Object data);
 }
