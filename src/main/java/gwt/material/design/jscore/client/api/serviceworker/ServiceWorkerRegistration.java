@@ -76,6 +76,13 @@ public class ServiceWorkerRegistration {
     @JsProperty
     public Functions.EventFunc onupdatefound;
 
+
+    /**
+     * Returns a reference to the {@link SyncManager} interface, which manages background synchronization processes.
+     */
+    @JsProperty
+    public SyncManager sync;
+
     /**
      * Checks the server for an updated version of the service worker without consulting caches.
      */
