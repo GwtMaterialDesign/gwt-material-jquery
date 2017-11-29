@@ -22,6 +22,7 @@ package gwt.material.design.jscore.client.api.serviceworker;
 
 import gwt.material.design.jquery.client.api.Functions;
 import gwt.material.design.jscore.client.api.promise.Promise;
+import gwt.material.design.jscore.client.api.push.PushManager;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
@@ -36,7 +37,6 @@ import jsinterop.annotations.JsType;
  * objects that represent them within the lifetime of their corresponding service worker clients.
  * The browser maintains a persistent list of active {@link ServiceWorkerRegistration} objects.
  */
-//TODO Need to transfer this at GMD JQuery
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class ServiceWorkerRegistration {
 
@@ -95,4 +95,11 @@ public class ServiceWorkerRegistration {
      */
     @JsMethod
     public native Promise unregister();
+
+    /**
+     * Returns a reference to the {@link PushManager} interface for managing push subscriptions
+     * including subscribing, getting an active subscription, and accessing push permission status.
+     */
+    @JsMethod
+    public native PushManager pushManager();
 }
