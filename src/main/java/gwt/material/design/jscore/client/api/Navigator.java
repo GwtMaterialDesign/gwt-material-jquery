@@ -20,7 +20,6 @@ import gwt.material.design.jquery.client.api.Functions;
 import gwt.material.design.jscore.client.api.media.Constraints;
 import gwt.material.design.jscore.client.api.media.MediaDevices;
 import gwt.material.design.jscore.client.api.media.MediaStream;
-import gwt.material.design.jscore.client.api.serviceworker.ServiceWorkerContainer;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
@@ -44,7 +43,6 @@ public class Navigator {
     public static MediaStream webkitGetUserMedia;
     public static MediaStream mozGetUserMedia;
     public static MediaStream msGetUserMedia;
-    public static ServiceWorkerContainer serviceWorker;
 
     @JsMethod
     public static native void getMedia(Constraints constraints, Functions.Func1<MediaStream> successCallback, Functions.Func1<String> failureCallback);
