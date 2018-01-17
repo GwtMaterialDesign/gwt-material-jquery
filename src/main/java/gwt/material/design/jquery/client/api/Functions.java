@@ -134,4 +134,16 @@ public interface Functions {
     interface MouseEventFunc {
         Object call(MouseEvent e);
     }
+
+    @FunctionalInterface
+    @JsFunction
+    interface MouseEventFunc1<A> {
+        Object call(MouseEvent e, A param1);
+    }
+
+    @FunctionalInterface
+    @JsFunction
+    interface MouseEventFunc2<A, B> {
+        Object call(MouseEvent e, A param1, B param2);
+    }
 }
