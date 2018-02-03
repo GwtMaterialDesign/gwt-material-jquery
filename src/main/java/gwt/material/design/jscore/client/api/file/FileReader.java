@@ -1,5 +1,6 @@
 package gwt.material.design.jscore.client.api.file;
 
+import gwt.material.design.jquery.client.api.Functions;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
@@ -17,6 +18,24 @@ public class FileReader {
     @JsProperty
     public String result;
 
+    @JsProperty
+    public Functions.Func onabort;
+
+    @JsProperty
+    public Functions.Func onerror;
+
+    @JsProperty
+    public Functions.Func onload;
+
+    @JsProperty
+    public Functions.Func onloadstart;
+
+    @JsProperty
+    public Functions.Func onloadend;
+
+    @JsProperty
+    public Functions.Func onprogress;
+
     @JsMethod
     public native void abort();
 
@@ -31,5 +50,4 @@ public class FileReader {
 
     @JsMethod
     public native void readAsText(File file);
-
 }
