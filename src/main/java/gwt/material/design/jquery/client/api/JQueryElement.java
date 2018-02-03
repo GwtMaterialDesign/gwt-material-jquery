@@ -1825,22 +1825,14 @@ public class JQueryElement extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement mousedown(EventFunc1 handler);
+    public native JQueryElement mousedown(Functions.MouseEventFunc1 handler);
 
     /**
      * Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement mousedown(EventFunc2 handler);
-
-    /**
-     * Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
-     * @param eventData An object containing data that will be passed to the event handler.
-     * @param handler A function to execute each time the event is triggered.
-     * @return self {@link JQueryElement}
-     */
-    public native JQueryElement mousedown(Object eventData, EventFunc handler);
+    public native JQueryElement mousedown(Functions.MouseEventFunc2 handler);
 
     /**
      * Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
@@ -1848,7 +1840,7 @@ public class JQueryElement extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement mousedown(Object eventData, EventFunc1 handler);
+    public native JQueryElement mousedown(Object eventData, MouseEventFunc handler);
 
     /**
      * Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
@@ -1856,7 +1848,15 @@ public class JQueryElement extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement mousedown(Object eventData, EventFunc2 handler);
+    public native JQueryElement mousedown(Object eventData, Functions.MouseEventFunc1 handler);
+
+    /**
+     * Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
+     * @param eventData An object containing data that will be passed to the event handler.
+     * @param handler A function to execute each time the event is triggered.
+     * @return self {@link JQueryElement}
+     */
+    public native JQueryElement mousedown(Object eventData, Functions.MouseEventFunc2 handler);
 
     /**
      * Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
@@ -2089,22 +2089,14 @@ public class JQueryElement extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement mouseup(EventFunc1 handler);
+    public native JQueryElement mouseup(Functions.MouseEventFunc1 handler);
 
     /**
      * Bind an event handler to the "mouseup" JavaScript event, or trigger that event on an element.
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement mouseup(EventFunc2 handler);
-
-    /**
-     * Bind an event handler to the "mouseup" JavaScript event, or trigger that event on an element.
-     * @param eventData An object containing data that will be passed to the event handler.
-     * @param handler A function to execute each time the event is triggered.
-     * @return self {@link JQueryElement}
-     */
-    public native JQueryElement mouseup(Object eventData, EventFunc handler);
+    public native JQueryElement mouseup(Functions.MouseEventFunc2 handler);
 
     /**
      * Bind an event handler to the "mouseup" JavaScript event, or trigger that event on an element.
@@ -2112,7 +2104,7 @@ public class JQueryElement extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement mouseup(Object eventData, EventFunc1 handler);
+    public native JQueryElement mouseup(Object eventData, MouseEventFunc handler);
 
     /**
      * Bind an event handler to the "mouseup" JavaScript event, or trigger that event on an element.
@@ -2120,7 +2112,15 @@ public class JQueryElement extends Node {
      * @param handler A function to execute each time the event is triggered.
      * @return self {@link JQueryElement}
      */
-    public native JQueryElement mouseup(Object eventData, EventFunc2 handler);
+    public native JQueryElement mouseup(Object eventData, Functions.MouseEventFunc1 handler);
+
+    /**
+     * Bind an event handler to the "mouseup" JavaScript event, or trigger that event on an element.
+     * @param eventData An object containing data that will be passed to the event handler.
+     * @param handler A function to execute each time the event is triggered.
+     * @return self {@link JQueryElement}
+     */
+    public native JQueryElement mouseup(Object eventData, Functions.MouseEventFunc2 handler);
 
     /**
      * Bind an event handler to the "mouseup" JavaScript event, or trigger that event on an element.
