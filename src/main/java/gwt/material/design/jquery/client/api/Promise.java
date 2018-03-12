@@ -37,6 +37,7 @@ package gwt.material.design.jquery.client.api;
 
 
 import gwt.material.design.jquery.client.api.Functions.FuncRet2;
+import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsType;
 
 /**
@@ -54,7 +55,8 @@ public interface Promise {
     Promise done(FuncRet2<Event, Object> f);
     
     Promise when(FuncRet2<Event, Object> f);
-    
+
+    @JsMethod(name = "catch")
     Promise fail(FuncRet2<Event, Object> f);
     
     Promise always(FuncRet2<Event, Object> f);
