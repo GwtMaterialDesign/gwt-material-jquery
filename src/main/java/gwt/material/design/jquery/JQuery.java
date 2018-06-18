@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package gwt.material.design.jquery.client.api;
+package gwt.material.design.jquery;
 
 /*
  * #%L
@@ -39,10 +39,10 @@ import com.google.gwt.core.client.ScriptInjector;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Node;
 import com.google.gwt.user.client.ui.UIObject;
-import gwt.material.design.jquery.client.api.Functions.Func;
-import gwt.material.design.jquery.client.api.Functions.Func2;
-import gwt.material.design.jquery.client.api.Functions.Func3;
-import gwt.material.design.jquery.client.api.Functions.FuncRet2;
+import gwt.material.design.jquery.Functions.Func;
+import gwt.material.design.jquery.Functions.Func2;
+import gwt.material.design.jquery.Functions.Func3;
+import gwt.material.design.jquery.Functions.FuncRet2;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;

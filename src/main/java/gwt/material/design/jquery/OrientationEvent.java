@@ -1,4 +1,4 @@
-package gwt.material.design.jquery.client.api;
+package gwt.material.design.jquery;
 
 /*
  * #%L
@@ -20,19 +20,17 @@ package gwt.material.design.jquery.client.api;
  * #L%
  */
 
-
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 /**
+ * OrientationEvent for JQuery.
+ * 
  * @author Ben Dol
  */
-@JsType(isNative = true)
-public class Offset {
+@JsType(namespace = "jQuery", name = "Event", isNative=true)
+public class OrientationEvent extends MouseEvent {
 
-    @JsProperty
-    public double top;
-
-    @JsProperty
-    public double left;
+    public OrientationEvent(String type) {
+        super(type);
+    }
 }

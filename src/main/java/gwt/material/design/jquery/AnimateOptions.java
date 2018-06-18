@@ -1,4 +1,4 @@
-package gwt.material.design.jquery.client.api;
+package gwt.material.design.jquery;
 
 /*
  * #%L
@@ -20,11 +20,11 @@ package gwt.material.design.jquery.client.api;
  * #L%
  */
 
-
-import gwt.material.design.jquery.client.api.Functions.Func;
-import gwt.material.design.jquery.client.api.Functions.Func1;
-import gwt.material.design.jquery.client.api.Functions.Func2;
-import gwt.material.design.jquery.client.api.Functions.Func3;
+import elemental2.promise.Promise;
+import gwt.material.design.jquery.Functions.Func;
+import gwt.material.design.jquery.Functions.Func1;
+import gwt.material.design.jquery.Functions.Func2;
+import gwt.material.design.jquery.Functions.Func3;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package gwt.material.design.jquery.client.api;
+package gwt.material.design.jquery;
 
 /*
  * #%L

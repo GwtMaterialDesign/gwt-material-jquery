@@ -11,20 +11,20 @@ JQuery interface maintained by GWT Material Design.
 Documentation on the JQuery can be found here: https://api.jquery.com/
 
 ## Maven
-Current Version 2.0-rc6
+Current Version 2.0
 ```xml
 <dependency>
     <groupId>com.github.gwtmaterialdesign</groupId>
     <artifactId>gwt-material-jquery</artifactId>
-    <version>2.0-rc6</version>
+    <version>2.0-rc7</version>
 </dependency>
 ```
-Snapshot Version 2.0-SNAPSHOT
+Snapshot Version 2.1-SNAPSHOT
 ```xml
 <dependency>
     <groupId>com.github.gwtmaterialdesign</groupId>
     <artifactId>gwt-material-jquery</artifactId>
-    <version>2.0-SNAPSHOT</version>
+    <version>2.1-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -37,7 +37,7 @@ This is handled by GMD if you yare using `GwtMaterialWithJQuery` GMD module.
 ```
 
 ```java
-import static gwt.material.design.jquery.client.api.JQuery.$;
+import static gwt.material.design.jquery.JQuery.$;
 
 public class MyEntryPoint implements EntryPoint {
 

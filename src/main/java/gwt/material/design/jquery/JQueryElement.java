@@ -13,7 +13,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package gwt.material.design.jquery.client.api;
+package gwt.material.design.jquery;
 
 /*
  * #%L
@@ -35,22 +35,22 @@ package gwt.material.design.jquery.client.api;
  * #L%
  */
 
-
 import com.google.gwt.dom.client.Element;
 import elemental2.dom.Node;
-import gwt.material.design.jquery.client.api.Functions.EventFunc;
-import gwt.material.design.jquery.client.api.Functions.EventFunc1;
-import gwt.material.design.jquery.client.api.Functions.EventFunc2;
-import gwt.material.design.jquery.client.api.Functions.EventFunc3;
-import gwt.material.design.jquery.client.api.Functions.Func;
-import gwt.material.design.jquery.client.api.Functions.Func1;
-import gwt.material.design.jquery.client.api.Functions.Func2;
-import gwt.material.design.jquery.client.api.Functions.Func3;
-import gwt.material.design.jquery.client.api.Functions.FuncRet1;
-import gwt.material.design.jquery.client.api.Functions.FuncRet2;
-import gwt.material.design.jquery.client.api.Functions.FuncRet3;
-import gwt.material.design.jquery.client.api.Functions.KeyEventFunc;
-import gwt.material.design.jquery.client.api.Functions.MouseEventFunc;
+import elemental2.promise.Promise;
+import gwt.material.design.jquery.Functions.EventFunc;
+import gwt.material.design.jquery.Functions.EventFunc1;
+import gwt.material.design.jquery.Functions.EventFunc2;
+import gwt.material.design.jquery.Functions.EventFunc3;
+import gwt.material.design.jquery.Functions.Func;
+import gwt.material.design.jquery.Functions.Func1;
+import gwt.material.design.jquery.Functions.Func2;
+import gwt.material.design.jquery.Functions.Func3;
+import gwt.material.design.jquery.Functions.FuncRet1;
+import gwt.material.design.jquery.Functions.FuncRet2;
+import gwt.material.design.jquery.Functions.FuncRet3;
+import gwt.material.design.jquery.Functions.KeyEventFunc;
+import gwt.material.design.jquery.Functions.MouseEventFunc;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
@@ -2826,7 +2826,7 @@ public class JQueryElement extends Node {
      * @return returns a dynamically generated Promise that is resolved once all actions of a certain
      * type bound to the collection, queued or not, have ended.
      */
-    public native Promise promise();
+    public native <T> Promise<T> promise();
 
     /**
      * Return a Promise object to observe when all actions of a certain type bound to the
@@ -2835,7 +2835,7 @@ public class JQueryElement extends Node {
      * @return returns a dynamically generated Promise that is resolved once all actions of a certain
      * type bound to the collection, queued or not, have ended.
      */
-    public native Promise promise(String type);
+    public native <T> Promise<T> promise(String type);
 
     /**
      * Return a Promise object to observe when all actions of a certain type bound to the
@@ -2844,7 +2844,7 @@ public class JQueryElement extends Node {
      * @return returns a dynamically generated Promise that is resolved once all actions of a certain
      * type bound to the collection, queued or not, have ended.
      */
-    public native Promise promise(Object target);
+    public native <T> Promise<T> promise(Object target);
 
     /**
      * Return a Promise object to observe when all actions of a certain type bound to the
@@ -2854,7 +2854,7 @@ public class JQueryElement extends Node {
      * @return returns a dynamically generated Promise that is resolved once all actions of a certain
      * type bound to the collection, queued or not, have ended.
      */
-    public native Promise promise(String type, Object target);
+    public native <T> Promise<T> promise(String type, Object target);
 
     /**
      * Get the value of a property for the first element in the set of matched elements.

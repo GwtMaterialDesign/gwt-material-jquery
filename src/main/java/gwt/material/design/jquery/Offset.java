@@ -1,4 +1,4 @@
-package gwt.material.design.jquery.client.api;
+package gwt.material.design.jquery;
 
 /*
  * #%L
@@ -17,7 +17,7 @@ package gwt.material.design.jquery.client.api;
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * #L%
+ * #L%``
  */
 
 
@@ -25,34 +25,14 @@ import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 /**
- * KeyEvent for JQuery.
- * 
  * @author Ben Dol
  */
-@JsType(isNative=true)
-public class KeyEvent extends Event {
+@JsType(isNative = true)
+public class Offset {
 
     @JsProperty
-    public native int getWhich();
+    public double top;
 
     @JsProperty
-    public native int getKeyCode();
-
-    @JsProperty
-    public native String getCharCode();
-
-    @JsProperty
-    public native boolean isShiftKey();
-
-    @JsProperty
-    public native boolean isCtrlKey();
-
-    @JsProperty
-    public native boolean isAltKey();
-
-    @JsProperty
-    public native boolean isCancelable();
-
-    @JsProperty
-    public native boolean isBubbles();
+    public double left;
 }

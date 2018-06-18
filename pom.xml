@@ -5,13 +5,13 @@
 
   <groupId>com.github.gwtmaterialdesign</groupId>
   <artifactId>gwt-material-jquery</artifactId>
-  <packaging>jar</packaging>
+  <packaging>gwt-lib</packaging>
   <version>2.1-SNAPSHOT</version>
 
   <properties>
-    <gwt.version>2.8.1</gwt.version>
-
-    <jscore.version>1.0</jscore.version>
+    <gwt.version>2.8.2</gwt.version>
+    <tbroyer.version>1.0-rc-9</tbroyer.version>
+    <elemental2.version>1.0.0-RC1</elemental2.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -71,32 +71,34 @@
     <dependency>
       <groupId>com.google.gwt</groupId>
       <artifactId>gwt-user</artifactId>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.google.gwt</groupId>
       <artifactId>gwt-dev</artifactId>
+      <scope>provided</scope>
     </dependency>
 
     <!-- Elemental2 -->
     <dependency>
       <groupId>com.google.elemental2</groupId>
       <artifactId>elemental2-core</artifactId>
-      <version>1.0.0-beta-1</version>
+      <version>${elemental2.version}</version>
     </dependency>
     <dependency>
       <groupId>com.google.elemental2</groupId>
       <artifactId>elemental2-dom</artifactId>
-      <version>1.0.0-beta-1</version>
+      <version>${elemental2.version}</version>
     </dependency>
     <dependency>
       <groupId>com.google.elemental2</groupId>
       <artifactId>elemental2-promise</artifactId>
-      <version>1.0.0-beta-1</version>
+      <version>${elemental2.version}</version>
     </dependency>
     <dependency>
       <groupId>com.google.elemental2</groupId>
       <artifactId>elemental2-media</artifactId>
-      <version>1.0.0-beta-1</version>
+      <version>${elemental2.version}</version>
     </dependency>
   </dependencies>
 
@@ -124,18 +126,35 @@
       </plugin>
 
       <plugin>
-        <groupId>org.codehaus.mojo</groupId>
+        <groupId>net.ltgt.gwt.maven</groupId>
         <artifactId>gwt-maven-plugin</artifactId>
-        <version>${gwt.version}</version>
+        <version>${tbroyer.version}</version>
+        <extensions>true</extensions>
         <configuration>
-          <gen>${basedir}/gen</gen>
-          <incremental>false</incremental>
-          <generateJsInteropExports>true</generateJsInteropExports>
+          <moduleName>gwt.material.design.JQuery</moduleName>
+            <style>OBFUSCATED</style>
+            <logLevel>INFO</logLevel>
+            <sourceLevel>1.8</sourceLevel>
+            <jvmArgs>
+                <jvmArg>-Xmx1g</jvmArg>
+                <jvmArg>-Xms1g</jvmArg>
+                <jvmArg>-XX:CompileThreshold=7000</jvmArg>
+            </jvmArgs>
+            <optimize>9</optimize>
+            <compilerArgs>
+                <compilerArg>-compileReport</compilerArg>
+                <compilerArg>-XcompilerMetrics</compilerArg>
+            </compilerArgs>
+            <skipModule>true</skipModule>
+            <classpathScope>compile+runtime</classpathScope>
+            <failOnError>true</failOnError>
+            <skipModule>true</skipModule>
         </configuration>
         <executions>
           <execution>
             <goals>
               <goal>compile</goal>
+                <goal>test</goal>
             </goals>
           </execution>
         </executions>
