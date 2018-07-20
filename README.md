@@ -11,20 +11,20 @@ JQuery interface maintained by GWT Material Design.
 Documentation on the JQuery can be found here: https://api.jquery.com/
 
 ## Maven
-Current Version 2.0.1
-```xml
-<dependency>
-    <groupId>com.github.gwtmaterialdesign</groupId>
-    <artifactId>gwt-material-jquery</artifactId>
-    <version>2.0.1</version>
-</dependency>
-```
-Snapshot Version 2.1
+Current Version 2.1
 ```xml
 <dependency>
     <groupId>com.github.gwtmaterialdesign</groupId>
     <artifactId>gwt-material-jquery</artifactId>
     <version>2.1</version>
+</dependency>
+```
+Snapshot Version 2.2-SNAPSHOT
+```xml
+<dependency>
+    <groupId>com.github.gwtmaterialdesign</groupId>
+    <artifactId>gwt-material-jquery</artifactId>
+    <version>2.2-SNAPSHOT</version>
 </dependency>
 ```
 
