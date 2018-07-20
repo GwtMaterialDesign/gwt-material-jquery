@@ -46,5 +46,4 @@ public class Navigator {
 
     @JsMethod
     public static native void getMedia(Constraints constraints, Functions.Func1<MediaStream> successCallback, Functions.Func1<String> failureCallback);
-
 }
