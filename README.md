@@ -19,12 +19,12 @@ Current Version 2.1
     <version>2.1</version>
 </dependency>
 ```
-Snapshot Version 2.2-SNAPSHOT
+Snapshot Version 2.1.1-SNAPSHOT
 ```xml
 <dependency>
     <groupId>com.github.gwtmaterialdesign</groupId>
     <artifactId>gwt-material-jquery</artifactId>
-    <version>2.2-SNAPSHOT</version>
+    <version>2.1.1-SNAPSHOT</version>
 </dependency>
 ```
 
