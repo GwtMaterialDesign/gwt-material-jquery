@@ -80,6 +80,15 @@ public class Event {
     @JsProperty
     public String metaKey;
 
+    @JsProperty
+    public boolean shiftKey;
+
+    @JsProperty
+    public boolean altKey;
+
+    @JsProperty
+    public boolean ctrlKey;
+
     @JsOverlay
     public final String getMetaKey() {
         return metaKey;
