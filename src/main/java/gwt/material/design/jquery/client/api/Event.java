@@ -105,6 +105,9 @@ public class Event {
     @JsProperty
     public JQueryElement relatedTarget;
 
+    @JsProperty
+    public Element target;
+
     @JsOverlay
     public final JQueryElement getRelatedTarget() {
         return relatedTarget;
