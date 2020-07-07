@@ -47,7 +47,7 @@ import jsinterop.annotations.JsType;
 @JsType(name = "Promise", isNative = true)
 public interface Promise {
 
-    Promise then(Functions.EventFunc f);
+    Promise then(Functions.FuncRet1<Object> f);
 
     Promise then(Functions.EventFunc1<Object> f);
 
