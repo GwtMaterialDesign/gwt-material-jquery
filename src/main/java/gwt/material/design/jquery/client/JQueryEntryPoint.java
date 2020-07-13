@@ -56,6 +56,7 @@ public class JQueryEntryPoint implements EntryPoint {
     /**
      * If jQuery JS loaded?
      */
+    //TODO: Convert to JSInterop
     private native boolean isInjected() /*-{
         return !(typeof $wnd.jQuery === "undefined") && !(null === $wnd.jQuery);
     }-*/;

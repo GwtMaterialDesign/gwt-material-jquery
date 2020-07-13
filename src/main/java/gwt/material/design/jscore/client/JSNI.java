@@ -14,15 +14,18 @@ import gwt.material.design.jscore.client.api.Window;
  * @author Cristian Rinaldi
  */
 public class JSNI {
-    
+
+    //TODO: Convert to JSInterop
     public static native Console createConsole() /*-{
         return $wnd.console;
     }-*/;
-    
+
+    //TODO: Convert to JSInterop
     public static native Window createWindow() /*-{
         return $wnd;
     }-*/;
-    
+
+    //TODO: Convert to JSInterop
     public static native JSON createJSON() /*-{
         return $wnd.JSON;
     }-*/;
