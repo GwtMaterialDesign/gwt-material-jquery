@@ -2,7 +2,7 @@
 
 ## GWT Material JQuery
 
-[![Build Status](https://travis-ci.org/GwtMaterialDesign/gwt-material-jquery.svg?branch=master)](https://travis-ci.org/GwtMaterialDesign/gwt-material-jquery)
+[![Build Status](https://travis-ci.org/GwtMaterialDesign/gwt-material-jquery.svg?branch=master)](https://travis-ci.org/GwtMaterialDesign/gwt-material-jquery) [![Join us](https://img.shields.io/badge/slack-channel-purple)](https://gmd-project.slack.com)
 
 JQuery interface maintained by GWT Material Design.
 
