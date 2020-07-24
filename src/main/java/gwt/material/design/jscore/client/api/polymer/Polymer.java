@@ -17,7 +17,8 @@ import jsinterop.annotations.JsType;
 public class Polymer {
 
     public native Element dom(Element e);
-    
+
+    //TODO: Convert to JSInterop
     public static class Static {
         public static native Polymer get() /*-{
             return $wnd.Polymer

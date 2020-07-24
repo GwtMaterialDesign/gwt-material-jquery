@@ -16,7 +16,7 @@ package gwt.material.design.jscore.client.api.media;
  * the License.
  */
 
-import gwt.material.design.jscore.client.api.promise.Promise;
+import gwt.material.design.jquery.client.api.Promise;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
