@@ -15,11 +15,13 @@
  */
 package gwt.material.design.jscore.client.api;
 
-import gwt.material.design.jscore.client.api.html.StyleSheetList;
 import gwt.material.design.jscore.client.api.core.Element;
 import gwt.material.design.jscore.client.api.core.NodeList;
 import gwt.material.design.jscore.client.api.html.HTMLBodyElement;
 import gwt.material.design.jscore.client.api.html.HTMLElement;
+import gwt.material.design.jscore.client.api.html.StyleSheetList;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
@@ -44,7 +46,10 @@ public class Document {
     public native Element querySelector(String selector);
 
     public native NodeList querySelectorAll(String selector);
-    
+
     @JsProperty
     public native StyleSheetList getStyleSheets();
+
+    @JsMethod(namespace = "document")
+    public static native void execCommand(String command);
 }
