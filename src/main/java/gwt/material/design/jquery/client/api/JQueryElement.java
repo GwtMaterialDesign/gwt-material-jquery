@@ -3939,4 +3939,6 @@ public class JQueryElement extends Node {
      * @return self {@link JQueryElement}
      */
     public native JQueryElement width(FuncRet2<Integer, Integer> function);
+
+    public native JQueryElement sort(FuncRet2<Element, Element> sortFunc);
 }
