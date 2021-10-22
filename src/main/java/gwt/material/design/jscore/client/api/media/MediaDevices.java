@@ -28,5 +28,8 @@ public class MediaDevices {
     public native Promise getUserMedia();
 
     @JsMethod
+    public native Promise enumerateDevices();
+
+    @JsMethod
     public native Promise getUserMedia(Constraints constraints);
 }
