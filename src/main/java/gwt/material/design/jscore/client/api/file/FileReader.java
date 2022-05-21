@@ -25,7 +25,7 @@ public class FileReader {
     public Functions.Func onerror;
 
     @JsProperty
-    public Functions.Func onload;
+    public Functions.Func1<ProgressEvent> onload;
 
     @JsProperty
     public Functions.Func onloadstart;
