@@ -9,6 +9,5 @@ import jsinterop.annotations.JsType;
 public class FileError extends JsObject {
 
     @JsProperty
-    String code;
-
+    public String code;
 }

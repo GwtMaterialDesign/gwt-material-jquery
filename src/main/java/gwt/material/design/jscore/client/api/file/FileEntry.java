@@ -11,19 +11,19 @@ import jsinterop.annotations.JsType;
 public class FileEntry extends JsObject {
 
     @JsProperty
-    boolean isFile;
+    public boolean isFile;
 
     @JsProperty
-    boolean isDirectory;
+    public boolean isDirectory;
 
     @JsProperty
-    String name;
+    public String name;
 
     @JsProperty
-    String fullPath;
+    public String fullPath;
 
     @JsProperty
-    FileSystem filesystem;
+    public FileSystem filesystem;
 
     @JsMethod
     public native String toURL();
