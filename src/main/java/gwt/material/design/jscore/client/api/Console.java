@@ -15,6 +15,7 @@
  */
 package gwt.material.design.jscore.client.api;
 
+import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
@@ -24,12 +25,18 @@ import jsinterop.annotations.JsType;
  * @author Cristian Rinaldi
  * <a href="mailto:csrinaldi@gmail.com?Subject=JsCore">csrinaldi@gmail.com</a>
  */
-@JsType(isNative = true)
+@JsType(isNative = true, namespace = "console")
 public class Console {
 
     @JsProperty
     public native MemoryInfo getMemory();
 
+    @JsMethod
     public native void log(Object... obj);
 
+    @JsMethod
+    public native void table(Object obj);
+
+    @JsMethod
+    public native void clear();
 }
