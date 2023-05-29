@@ -16,6 +16,7 @@
 package gwt.material.design.jscore.client.api;
 
 import gwt.material.design.jscore.client.api.db.IDBEnvironment;
+import gwt.material.design.jscore.client.api.viewport.VisualViewport;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
@@ -27,7 +28,7 @@ import jsinterop.annotations.JsType;
  * @author Andres Testi <a
  * href="mailto:andres.a.testi@gmail.com?Subject=JQuery">andres.a.testi@gmail.com</a>
  */
-@JsType(isNative = true)
+@JsType(isNative = true, name = "window")
 public class Window extends IDBEnvironment {
 
     @JsProperty
@@ -35,4 +36,19 @@ public class Window extends IDBEnvironment {
     
     @JsProperty
     public native Document getDocument();
+
+    @JsProperty
+    public static double outerWidth;
+
+    @JsProperty
+    public static double innerWidth;
+
+    @JsProperty
+    public static double outerHeight;
+
+    @JsProperty
+    public static double innerHeight;
+
+    @JsProperty
+    public static VisualViewport visualViewport;
 }
