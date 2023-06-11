@@ -51,4 +51,7 @@ public class Window extends IDBEnvironment {
 
     @JsProperty
     public static VisualViewport visualViewport;
+
+    @JsProperty
+    public static double devicePixelRatio;
 }
