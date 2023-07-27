@@ -24,7 +24,7 @@ Snapshot Version 2.8.0
 <dependency>
     <groupId>com.github.gwtmaterialdesign</groupId>
     <artifactId>gwt-material-jquery</artifactId>
-    <version>2.8.0-SNAPSHOT</version>
+    <version>2.7.1</version>
 </dependency>
 ```
 
